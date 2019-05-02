@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.ReferenceInterfaces;
+package zombieyisheng.DataSet;
 
 /**
  *
  * @author Thomas
  */
-public interface IEnquirer 
-{
-    public void startInterview();
-}
+public interface IDataSet extends IDataSource, ITableProducer 
+{}

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.ReferenceInterfaces;
+package zombieyisheng.DataSet;
 
 /**
  *
  * @author Thomas
  */
-public interface IResponder 
+public interface IDataSource 
 {
-    public String ask(String question);
-    public boolean finalAnswer(String answer);
+    public String getDataSource();
+    public void setDataSource(String dataSource);
 }
