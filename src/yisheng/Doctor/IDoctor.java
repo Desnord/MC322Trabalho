@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.Reference;
+package yisheng.Doctor;
+
+import yisheng.Reference.IEnquirer;
+import yisheng.Reference.IResponderReceptacle;
 
 /**
  *
  * @author Thomas
  */
-public interface IResponder
-{
-    public String ask(String question);
-    public boolean finalAnswer(String answer);
-}
+public interface IDoctor extends IResponderReceptacle,IEnquirer
+{}

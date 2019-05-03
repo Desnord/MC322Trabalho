@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.Doctor;
-
-import zombieyisheng.Reference.IEnquirer;
-import zombieyisheng.Reference.IResponderReceptacle;
+package yisheng.DataSet;
 
 /**
  *
  * @author Thomas
  */
-public interface IDoctor extends IResponderReceptacle,IEnquirer
-{}
+public interface ITableProducer 
+{
+    String[] requestAttributes();
+    String[][] requestInstances();
+}

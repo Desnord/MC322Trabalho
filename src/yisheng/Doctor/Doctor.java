@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.DataSet;
+package yisheng.Doctor;
+
+import yisheng.Reference.IResponder;
 
 /**
  *
  * @author Thomas
  */
-public interface IDataSource 
+public class Doctor implements IDoctor
 {
-    public String getDataSource();
-    public void setDataSource(String dataSource);
+    public void startInterview()
+    {}
+    public void connect(IResponder responder)
+    {}
 }

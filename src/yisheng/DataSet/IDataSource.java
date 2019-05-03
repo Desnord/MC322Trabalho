@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng;
+package yisheng.DataSet;
 
 /**
  *
  * @author Thomas
  */
-public class ZombieYisheng 
+public interface IDataSource 
 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        JFPrincipal jfp = new JFPrincipal();
-    }
-    
+    public String getDataSource();
+    public void setDataSource(String dataSource);
 }

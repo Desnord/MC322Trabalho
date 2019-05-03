@@ -3,13 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.Reference;
+package yisheng;
 
 /**
  *
  * @author Thomas
  */
-public interface IEnquirer 
+public class ZombieYisheng 
 {
-    public void startInterview();
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) 
+    {
+        JFPrincipal jfp = new JFPrincipal();
+    }
+    
 }

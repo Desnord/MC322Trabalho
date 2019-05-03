@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisheng.DataSet;
+package yisheng.Reference;
 
 /**
  *
  * @author Thomas
  */
-public interface ITableProducer 
+public interface IResponder
 {
-    String[] requestAttributes();
-    String[][] requestInstances();
+    public String ask(String question);
+    public boolean finalAnswer(String answer);
 }
