@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zombieyisnheng.Doctor;
+package zombieyisheng.Doctor;
 
-import zombieyisheng.Reference.IEnquirer;
-import zombieyisheng.Reference.IResponderReceptacle;
+import zombieyisheng.Reference.IResponder;
 
 /**
  *
  * @author Thomas
  */
-public interface IDoctor extends IResponderReceptacle,IEnquirer
-{}
+public class Doctor implements IDoctor
+{
+    public void startInterview()
+    {}
+    public void connect(IResponder responder)
+    {}
+}
