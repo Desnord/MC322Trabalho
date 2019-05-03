@@ -5,6 +5,7 @@
  */
 package yisheng.Doctor;
 
+import yisheng.DataSet.ITableProducerReceptacle;
 import yisheng.Reference.IEnquirer;
 import yisheng.Reference.IResponderReceptacle;
 
@@ -12,5 +13,5 @@ import yisheng.Reference.IResponderReceptacle;
  *
  * @author Thomas
  */
-public interface IDoctor extends IResponderReceptacle,IEnquirer
+public interface IDoctor extends IResponderReceptacle,IEnquirer,ITableProducerReceptacle
 {}
