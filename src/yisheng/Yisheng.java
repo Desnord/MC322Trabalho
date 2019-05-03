@@ -27,10 +27,10 @@ public class Yisheng
         IPatient paciente = new Patient();
         paciente.connect(dataset);
         
-        //IDoctor medico = new Doctor();
-        //medico.connect(dataset);
-        //medico.connect(paciente);
-        //medico.startInterview();
+        IDoctor medico = new Doctor();
+        medico.connect(dataset);
+        medico.connect(paciente);
+        medico.startInterview();
     }
     
 }
