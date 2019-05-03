@@ -15,7 +15,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     /** Creates new form JFPrincipal */
     public JFPrincipal() 
     {
-        super("YiSheng");
+        super("YiSheng - 医生");
         initComponents();
         setSize(500,500);
         setLocationRelativeTo(null);
