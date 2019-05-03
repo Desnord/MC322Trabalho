@@ -57,7 +57,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("jLabel5");
 
-        jLabel6.setText("jLabel7");
+        jLabel6.setText("jLabel6");
 
         jLabel7.setText("jLabel6");
 
