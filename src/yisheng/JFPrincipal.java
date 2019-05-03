@@ -30,12 +30,13 @@ public class JFPrincipal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         JPPrincipal = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        JBdiagnosticar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        JTAinfos = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,12 +44,12 @@ public class JFPrincipal extends javax.swing.JFrame {
         JPPrincipal.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         JPPrincipal.setName(""); // NOI18N
 
-        jButton1.setText("Diagnosticar");
+        JBdiagnosticar.setText("Diagnosticar");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        JTAinfos.setColumns(20);
+        JTAinfos.setRows(5);
+        JTAinfos.setEnabled(false);
+        jScrollPane1.setViewportView(JTAinfos);
 
         javax.swing.GroupLayout JPPrincipalLayout = new javax.swing.GroupLayout(JPPrincipal);
         JPPrincipal.setLayout(JPPrincipalLayout);
@@ -58,7 +59,7 @@ public class JFPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JBdiagnosticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         JPPrincipalLayout.setVerticalGroup(
@@ -67,7 +68,7 @@ public class JFPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(JBdiagnosticar)
                 .addContainerGap())
         );
 
@@ -127,10 +128,10 @@ public class JFPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBdiagnosticar;
     private javax.swing.JPanel JPPrincipal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextArea JTAinfos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
 }
