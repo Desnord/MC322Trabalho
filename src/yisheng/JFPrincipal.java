@@ -6,11 +6,22 @@
 
 package yisheng;
 
+import yisheng.DataSet.DataSetComponent;
+import yisheng.DataSet.IDataSet;
+import yisheng.Doctor.Doctor;
+import yisheng.Doctor.IDoctor;
+import yisheng.Pacient.IPatient;
+import yisheng.Pacient.Patient;
+
 /**
  *
  * @author Thomas
  */
 public class JFPrincipal extends javax.swing.JFrame {
+    
+    IDoctor medico;
+    IPatient paciente;
+    IDataSet dataset;
 
     /** Creates new form JFPrincipal */
     public JFPrincipal() 
@@ -21,6 +32,13 @@ public class JFPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        
+        dataset = new DataSetComponent();
+        dataset.setDataSource("src/yisheng/csv/zombie-health-spreadsheet-ml-training.csv");
+        paciente = new Patient();
+        paciente.connect(dataset);
+        
+        medico = new Doctor();
     }
 
     /** This method is called from within the constructor to
@@ -30,8 +48,7 @@ public class JFPrincipal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         JPPrincipal = new javax.swing.JPanel();
         JBdiagnosticar = new javax.swing.JButton();
@@ -39,14 +56,27 @@ public class JFPrincipal extends javax.swing.JFrame {
         JTAinfos = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
 
+        JPPrincipal.setBackground(new java.awt.Color(51, 51, 51));
         JPPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPPrincipal.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         JPPrincipal.setName(""); // NOI18N
 
+        JBdiagnosticar.setBackground(new java.awt.Color(204, 204, 204));
+        JBdiagnosticar.setForeground(new java.awt.Color(0, 0, 0));
         JBdiagnosticar.setText("Diagnosticar");
+        JBdiagnosticar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        JBdiagnosticar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBdiagnosticar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBdiagnosticarMouseClicked(evt);
+            }
+        });
 
+        JTAinfos.setBackground(new java.awt.Color(204, 204, 204));
         JTAinfos.setColumns(20);
+        JTAinfos.setForeground(new java.awt.Color(0, 0, 0));
         JTAinfos.setRows(5);
         JTAinfos.setEnabled(false);
         jScrollPane1.setViewportView(JTAinfos);
@@ -55,18 +85,18 @@ public class JFPrincipal extends javax.swing.JFrame {
         JPPrincipal.setLayout(JPPrincipalLayout);
         JPPrincipalLayout.setHorizontalGroup(
             JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPPrincipalLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(JBdiagnosticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JBdiagnosticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
                 .addContainerGap())
         );
         JPPrincipalLayout.setVerticalGroup(
             JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(JBdiagnosticar)
                 .addContainerGap())
@@ -76,7 +106,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JPPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -91,6 +121,12 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBdiagnosticarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBdiagnosticarMouseClicked
+        medico.connect(dataset);
+        medico.connect(paciente);
+        medico.startInterview();
+    }//GEN-LAST:event_JBdiagnosticarMouseClicked
 
     /**
      * @param args the command line arguments

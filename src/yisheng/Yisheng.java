@@ -5,10 +5,6 @@
  */
 package yisheng;
 
-import yisheng.DataSet.*;
-import yisheng.Doctor.*;
-import yisheng.Pacient.*;
-
 /**
  *
  * @author Thomas
@@ -22,15 +18,6 @@ public class Yisheng
     public static void main(String[] args) 
     {
         JFPrincipal jfp = new JFPrincipal();
-        IDataSet dataset = new DataSetComponent();
-        dataset.setDataSource("src/yisheng/csv/zombie-health-spreadsheet-ml-training.csv");
-        IPatient paciente = new Patient();
-        paciente.connect(dataset);
-        
-        IDoctor medico = new Doctor();
-        medico.connect(dataset);
-        medico.connect(paciente);
-        medico.startInterview();
     }
     
 }
