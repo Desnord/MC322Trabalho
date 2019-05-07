@@ -48,7 +48,8 @@ public class JFPrincipal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         JPPrincipal = new javax.swing.JPanel();
         JBdiagnosticar = new javax.swing.JButton();
@@ -67,18 +68,20 @@ public class JFPrincipal extends javax.swing.JFrame {
         JBdiagnosticar.setForeground(new java.awt.Color(0, 0, 0));
         JBdiagnosticar.setText("Diagnosticar");
         JBdiagnosticar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        JBdiagnosticar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBdiagnosticar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        JBdiagnosticar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JBdiagnosticar.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 JBdiagnosticarMouseClicked(evt);
             }
         });
 
+        JTAinfos.setEditable(false);
         JTAinfos.setBackground(new java.awt.Color(204, 204, 204));
         JTAinfos.setColumns(20);
         JTAinfos.setForeground(new java.awt.Color(0, 0, 0));
         JTAinfos.setRows(5);
-        JTAinfos.setEnabled(false);
         jScrollPane1.setViewportView(JTAinfos);
 
         javax.swing.GroupLayout JPPrincipalLayout = new javax.swing.GroupLayout(JPPrincipal);
@@ -126,6 +129,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         medico.connect(dataset);
         medico.connect(paciente);
         medico.startInterview();
+        JTAinfos.append("teste \n");
     }//GEN-LAST:event_JBdiagnosticarMouseClicked
 
     /**
