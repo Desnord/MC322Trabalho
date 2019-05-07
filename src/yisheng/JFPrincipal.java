@@ -6,6 +6,9 @@
 
 package yisheng;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import yisheng.DataSet.DataSetComponent;
 import yisheng.DataSet.IDataSet;
 import yisheng.Doctor.Doctor;
@@ -27,6 +30,9 @@ public class JFPrincipal extends javax.swing.JFrame {
     public JFPrincipal() 
     {
         super("YiSheng - 医生");
+        ImageIcon img = new ImageIcon("src/yisheng/images/medic.png");
+        this.setIconImage(img.getImage());
+        
         initComponents();
         setSize(500,500);
         setLocationRelativeTo(null);
@@ -90,9 +96,9 @@ public class JFPrincipal extends javax.swing.JFrame {
             JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JBdiagnosticar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                .addGroup(JPPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JBdiagnosticar, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         JPPrincipalLayout.setVerticalGroup(
@@ -126,9 +132,12 @@ public class JFPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBdiagnosticarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBdiagnosticarMouseClicked
+        JTAinfos.setText(""); //limpa a area de texto
+        
         medico.connect(dataset);
         medico.connect(paciente);
-        medico.startInterview();
+        medico.startInterview();//comeca entrevista
+        
         JTAinfos.append("teste \n");
     }//GEN-LAST:event_JBdiagnosticarMouseClicked
 
