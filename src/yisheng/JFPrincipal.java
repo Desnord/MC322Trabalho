@@ -5,7 +5,7 @@
  */
 package yisheng;
 
-
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 /**
@@ -15,17 +15,20 @@ import javax.swing.JFrame;
 public class JFPrincipal extends JFrame
 {    
     private JPPrincipal jpp = new JPPrincipal();
+    
     public JFPrincipal()
     {
         super("YiSheng - 医生");
         setSize(500,500);
         setLocationRelativeTo(null);
+        
+        URL iconURL = getClass().getResource("./images/medic.png");
+        ImageIcon icon = new ImageIcon(iconURL);
+        setIconImage(icon.getImage());
+        
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
-        //ImageIcon img = new ImageIcon("/images/icon.ico");
-        //this.setIconImage(img.getImage());
         
         setContentPane(jpp);
     }
