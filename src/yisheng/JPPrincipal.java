@@ -7,6 +7,7 @@ package yisheng;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.TitledBorder;
 import yisheng.DataSet.DataSetComponent;
 import yisheng.DataSet.IDataSet;
 import yisheng.Doctor.Doctor;
@@ -47,20 +50,114 @@ public class JPPrincipal extends JPanel implements ActionListener
     public JPPrincipal()
     {
         //setando opcoes de layout
-        this.setBorder(BorderFactory.createEtchedBorder(Color.WHITE,Color.RED));  
+        this.setBorder(new CompoundBorder(BorderFactory.createLineBorder(Color.green),BorderFactory.createLineBorder(Color.black)));  
 	this.setBackground(Color.darkGray);
         this.setLayout(new BorderLayout());
        
         
-        //criando os botoes e campo de informacoes
+        //criando os botoes,campo de informacoes e seus layouts
         JBDiagnosticar = new JButton("Diagnosticar");
         JBDiagnosticar.setEnabled(false);
+        JBDiagnosticar.setBackground(Color.lightGray);
+        JBDiagnosticar.setForeground(Color.black);
+        JBDiagnosticar.setPreferredSize(new Dimension(100, 30));
         
+        JBDiagnosticar.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt) 
+            {
+                if(JBDiagnosticar.isEnabled())
+                    JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) 
+            {
+                if(JBDiagnosticar.isEnabled())
+                {
+                    JBDiagnosticar.setBackground(Color.lightGray);
+                    JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                }
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                if(JBDiagnosticar.isEnabled())
+                    JBDiagnosticar.setBackground(new Color(66, 244, 95));    
+            }     
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+                if(JBDiagnosticar.isEnabled())
+                {
+                    JBDiagnosticar.setBackground(Color.lightGray);
+                    JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                }
+            }
+        });
+        
+  
         JBConectar = new JButton("Conectar");
+        JBConectar.setBackground(Color.lightGray);
+        JBConectar.setForeground(Color.black);
+        JBConectar.setPreferredSize(new Dimension(100, 30));
+        
+        JBConectar.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt) 
+            {
+                JBConectar.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) 
+            {
+                JBConectar.setBackground(Color.lightGray);
+                JBConectar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                JBConectar.setBackground(new Color(66, 244, 95));    
+            }
+            
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+
+                JBConectar.setBackground(Color.lightGray);
+                JBConectar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            }
+        });
+        
         JBArquivo = new JButton("Abrir Arquivo");
-       
-        JTAinfos = new JTextArea(200,200);
-        JTAinfos.setBackground(Color.LIGHT_GRAY);
+        JBArquivo.setBackground(Color.lightGray);
+        JBArquivo.setForeground(Color.black);
+        JBArquivo.setPreferredSize(new Dimension(100, 30));
+        
+        JBArquivo.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt) 
+            {
+                JBArquivo.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) 
+            {
+                JBArquivo.setBackground(Color.lightGray);
+                JBArquivo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                JBArquivo.setBackground(new Color(66, 244, 95));    
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+
+                JBArquivo.setBackground(Color.lightGray);
+                JBArquivo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            }
+        });
+        
+        JTAinfos = new JTextArea(100,100);
+        JTAinfos.setBackground(Color.gray);
+        TitledBorder linha = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray),"Diagnóstico:");
+        linha.setTitleColor(Color.black);
+        JTAinfos.setBorder(linha);
         JTAinfos.setEditable(false);
         
         //adiciona eventos dos botoes
@@ -73,17 +170,16 @@ public class JPPrincipal extends JPanel implements ActionListener
         URL iconURL = getClass().getResource("./images/zombie.png");
         ImageIcon icon = new ImageIcon(iconURL);
         Image image = icon.getImage();
-        Image newimg = image.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); 
+        Image newimg = image.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); 
         icon = new ImageIcon(newimg);
         JLabel lblImg = new JLabel(icon, JLabel.CENTER);
 
-        
-        
         add(BorderLayout.NORTH,lblImg);
         add(BorderLayout.CENTER,JTAinfos);
        
         JPanel jfs = new JPanel();
         GridLayout gl = new GridLayout(1,3);
+        jfs.setBackground(Color.darkGray);
         jfs.setLayout(gl);
         jfs.add(JBDiagnosticar);
         jfs.add(JBConectar);
