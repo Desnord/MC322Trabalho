@@ -10,9 +10,15 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.net.Socket;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import yisheng.DataSet.DataSetComponent;
@@ -31,6 +37,8 @@ public class JPPrincipal extends JPanel implements ActionListener
     IDoctor medico;
     IPatient paciente;
     IDataSet dataset;
+    
+    private Socket socket;
     
     private JButton JBDiagnosticar,JBConectar,JBArquivo;
     private JTextArea JTAinfos; 
@@ -69,7 +77,10 @@ public class JPPrincipal extends JPanel implements ActionListener
         jfs.add(JBConectar);
         jfs.add(JBArquivo);
       
-        add(BorderLayout.SOUTH,jfs);        
+        add(BorderLayout.SOUTH,jfs);  
+        
+        //medico instanciado
+        medico = new Doctor();
     }
     @Override
     public void actionPerformed(ActionEvent e) 
@@ -104,7 +115,6 @@ public class JPPrincipal extends JPanel implements ActionListener
                     //seleciona um novo paciente para diagnosticar
                     paciente = new Patient();
                     paciente.connect(dataset);
-                    medico = new Doctor();
 
                     //habilita botao de diagnostico
                     JBDiagnosticar.setEnabled(true);
@@ -122,7 +132,16 @@ public class JPPrincipal extends JPanel implements ActionListener
     {
         public void actionPerformed (ActionEvent e)
     	{
-            
+            try
+            {
+                socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
+                ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
+                String pacInfos = (String)ois.readObject();
+            }
+            catch(Exception ex)
+            {
+                JOptionPane.showMessageDialog(null, "Servidor indisponível ou dados recebidos inválidos.", "Erro: ", JOptionPane.INFORMATION_MESSAGE);
+            }
         }      
     }
     
@@ -130,7 +149,8 @@ public class JPPrincipal extends JPanel implements ActionListener
     {
         public void actionPerformed (ActionEvent e)
     	{
-            
+            //aqui o medico tem de realizar o diagnostico do paciente selecionado
+            //chamar o metodo de diagnosticar com o paciente atual em parametro
         }      
     }
 }
