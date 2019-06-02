@@ -8,13 +8,17 @@ package yisheng;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.net.URL;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -65,6 +69,17 @@ public class JPPrincipal extends JPanel implements ActionListener
         JBDiagnosticar.addActionListener(new RealizaDiagnostico());
         
         //setando mais opcoes de layout
+            
+        URL iconURL = getClass().getResource("./images/zombie.png");
+        ImageIcon icon = new ImageIcon(iconURL);
+        Image image = icon.getImage();
+        Image newimg = image.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); 
+        icon = new ImageIcon(newimg);
+        JLabel lblImg = new JLabel(icon, JLabel.CENTER);
+
+        
+        
+        add(BorderLayout.NORTH,lblImg);
         add(BorderLayout.CENTER,JTAinfos);
        
         JPanel jfs = new JPanel();
