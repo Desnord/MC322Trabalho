@@ -10,9 +10,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import javax.swing.BorderFactory;
@@ -98,7 +95,6 @@ public class JPPrincipal extends JPanel implements ActionListener
             //abre um arquivo com configuracao de paciente
             JFileChooser x = new JFileChooser(System.getProperty("user.dir")+"/src/yisheng/csv");
 	    x.setDialogTitle("Abrir");
-            //x.setCurrentDirectory();
             
             int retorno = x.showSaveDialog(null);
             
@@ -118,9 +114,6 @@ public class JPPrincipal extends JPanel implements ActionListener
 
                     //habilita botao de diagnostico
                     JBDiagnosticar.setEnabled(true);
-
-                    //desabilita opcao por rede
-                    JBConectar.setEnabled(false);
                 }
             }
             catch (Exception ex)
@@ -137,6 +130,30 @@ public class JPPrincipal extends JPanel implements ActionListener
                 socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
                 ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
                 String pacInfos = (String)ois.readObject();
+                JTAinfos.setText(pacInfos);
+                
+                String vetInfos[] = pacInfos.split(",");
+                dataset = new DataSetComponent();
+                
+                
+                switch(vetInfos[0])
+                {
+                case "1":
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
+                case "2":
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
+                case "3":
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
+                case "4":
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
+                }
+           
+                //seleciona um novo paciente para diagnosticar
+                paciente = new Patient();
+                paciente.connect(dataset);
+                
+                //habilita botao de diagnostico
+                JBDiagnosticar.setEnabled(true);
             }
             catch(Exception ex)
             {
@@ -149,6 +166,7 @@ public class JPPrincipal extends JPanel implements ActionListener
     {
         public void actionPerformed (ActionEvent e)
     	{
+            JBDiagnosticar.setEnabled(false);
             //aqui o medico tem de realizar o diagnostico do paciente selecionado
             //chamar o metodo de diagnosticar com o paciente atual em parametro
         }      

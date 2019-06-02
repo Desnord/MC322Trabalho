@@ -18,7 +18,7 @@ public class JFPrincipal extends JFrame
     
     public JFPrincipal()
     {
-        super("YiSheng - 医生");
+        super("YiSheng - 医生 - Médico");
         setSize(500,500);
         setLocationRelativeTo(null);
         
