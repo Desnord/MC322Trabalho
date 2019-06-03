@@ -72,11 +72,8 @@ public class JPPrincipal extends JPanel implements ActionListener
 
             public void mouseExited(java.awt.event.MouseEvent evt) 
             {
-                if(JBDiagnosticar.isEnabled())
-                {
-                    JBDiagnosticar.setBackground(Color.lightGray);
-                    JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-                }
+                JBDiagnosticar.setBackground(Color.lightGray);
+                JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             }
             public void mousePressed(java.awt.event.MouseEvent evt)
             {
@@ -85,11 +82,8 @@ public class JPPrincipal extends JPanel implements ActionListener
             }     
             public void mouseReleased(java.awt.event.MouseEvent evt)
             {
-                if(JBDiagnosticar.isEnabled())
-                {
-                    JBDiagnosticar.setBackground(Color.lightGray);
-                    JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-                }
+                JBDiagnosticar.setBackground(Color.lightGray);
+                JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));            
             }
         });
         
