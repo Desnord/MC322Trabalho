@@ -23,7 +23,8 @@ public class Doctor implements IDoctor
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
-        return "";
+        melhorPergunta(attributes, instances);
+        return null;
     }
     public void connect(IResponder responder)
     {
@@ -33,11 +34,27 @@ public class Doctor implements IDoctor
     {
         this.producer = producer;
     }
-    public String melhorPergunta(String a, String b){
-        return null;
-        
+    public void melhorPergunta(String att[], String ins[][]){
+        int[][] cont = new int[att.length][2]; 
+        int aux_v = 0, aux_f = 0;
+        for(int j = 0; j < att.length; j++){
+            for (int i = 0; i < ins.length; i++){
+                if(ins[i][j] == "f")
+                    aux_f++;
+                else
+                    aux_v++;
+            }
+            cont[j][0] = aux_v;
+            cont[j][1] = aux_f;
+            
+            System.out.println("[ " + aux_v + " " + aux_f + " ]");
+            aux_v = 0;
+            aux_f = 0;
+        }
+      
     }
-    public String VetorDeMelhoresPerguntas(String attributes, String instance){
+    public String VetorDeMelhoresPerguntas(String attributes[], String instances[][]){
+        melhorPergunta(attributes, instances);
         return null;
     }
 }
