@@ -272,8 +272,10 @@ public class JPPrincipal extends JPanel implements ActionListener
         public void actionPerformed (ActionEvent e)
     	{
             JBDiagnosticar.setEnabled(false);
-            //aqui o medico tem de realizar o diagnostico do paciente selecionado
-            //chamar o metodo de diagnosticar com o paciente atual em parametro
+            medico.connect(dataset);
+            medico.connect(paciente);
+            String doenca = medico.startInterview();
+            JTAinfos.setText("O paciente tem: "+doenca);
         }      
     }
 }

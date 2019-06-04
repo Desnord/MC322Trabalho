@@ -11,5 +11,5 @@ package yisheng.Reference;
  */
 public interface IEnquirer 
 {
-    public void startInterview();
+    public String startInterview();
 }

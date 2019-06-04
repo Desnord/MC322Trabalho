@@ -19,12 +19,14 @@ public class Doctor implements IDoctor
     private ITableProducer producer;
     private IResponder responder;
     
-    public void startInterview()
+    public String startInterview()
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
+        melhorPergunta(attributes, instances);
+        //chamar o método de encontrar a melhor pergunta
         
-        //terminar
+        return "";
     }
     public void connect(IResponder responder)
     {
@@ -33,5 +35,8 @@ public class Doctor implements IDoctor
     public void connect(ITableProducer producer) 
     {
         this.producer = producer;
+    }
+    public void melhorPergunta(String attributes[], String instance[][]){
+        
     }
 }
