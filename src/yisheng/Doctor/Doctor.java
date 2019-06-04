@@ -34,8 +34,10 @@ public class Doctor implements IDoctor
         this.producer = producer;
     }
     public String melhorPergunta(String a, String b){
+        return null;
         
     }
     public String VetorDeMelhoresPerguntas(String attributes, String instance){
+        return null;
     }
 }
