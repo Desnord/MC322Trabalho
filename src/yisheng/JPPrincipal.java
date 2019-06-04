@@ -228,6 +228,7 @@ public class JPPrincipal extends JPanel implements ActionListener
     
     private class RedeConectar implements ActionListener
     {
+        @Override
         public void actionPerformed (ActionEvent e)
     	{
             try
