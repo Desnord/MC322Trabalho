@@ -236,6 +236,7 @@ public class JPPrincipal extends JPanel implements ActionListener
                 ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
                 String pacInfos = (String)ois.readObject();
                 JTAinfos.setText(pacInfos);
+                socket.close();
                 
                 String vetInfos[] = pacInfos.split(",");
                 dataset = new DataSetComponent();
