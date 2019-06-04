@@ -35,20 +35,21 @@ public class Doctor implements IDoctor
         this.producer = producer;
     }
     public void melhorPergunta(String att[], String ins[][]){
-        int[][] cont = new int[att.length][2]; 
-        int aux_v = 0, aux_f = 0;
-        for(int j = 0; j < att.length; j++){
+        int[][] cont = new int[att.length][4]; 
+        int aux_t = 0, aux_f = 0;
+        for(int j = 0; j < att.length - 1; j++){
             for (int i = 0; i < ins.length; i++){
-                if(ins[i][j] == "f")
-                    aux_f++;
-                else
-                    aux_v++;
+                if(ins[i][j].equals("f"))
+                    aux_f += 1;
+                else if(ins[i][j].equals("t"))
+                    aux_t += 1;
             }
-            cont[j][0] = aux_v;
+            cont[j][0] = aux_t;
             cont[j][1] = aux_f;
-            
-            System.out.println("[ " + aux_v + " " + aux_f + " ]");
-            aux_v = 0;
+            cont[j][2] = j;
+            cont[j][3] = Math.abs(aux_t - aux_f);
+            System.out.println("[ " + cont[j][0] + " " + cont[j][1] + " " + cont[j][2] +  " " +  cont[j][3] + " ]");
+            aux_t = 0;
             aux_f = 0;
         }
       
