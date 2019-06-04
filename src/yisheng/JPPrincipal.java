@@ -9,9 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.URL;
@@ -38,15 +40,15 @@ import yisheng.Pacient.Patient;
  */
 public class JPPrincipal extends JPanel implements ActionListener
 {
-    IDoctor medico;
-    IPatient paciente;
-    IDataSet dataset;
+    private IDoctor medico;
+    private IPatient paciente;
+    private IDataSet dataset;
     
     private Socket socket;
-    
     private JButton JBDiagnosticar,JBConectar,JBArquivo;
     private JTextArea JTAinfos; 
     
+    //construtor de janela
     public JPPrincipal()
     {
         //setando opcoes de layout
@@ -64,22 +66,26 @@ public class JPPrincipal extends JPanel implements ActionListener
         
         JBDiagnosticar.addMouseListener(new java.awt.event.MouseAdapter() 
         {
+            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) 
             {
                 if(JBDiagnosticar.isEnabled())
                     JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.black));
             }
 
+            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) 
             {
                 JBDiagnosticar.setBackground(Color.lightGray);
                 JBDiagnosticar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             }
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt)
             {
                 if(JBDiagnosticar.isEnabled())
                     JBDiagnosticar.setBackground(new Color(66, 244, 95));    
             }     
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt)
             {
                 JBDiagnosticar.setBackground(Color.lightGray);
@@ -95,21 +101,25 @@ public class JPPrincipal extends JPanel implements ActionListener
         
         JBConectar.addMouseListener(new java.awt.event.MouseAdapter() 
         {
+            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) 
             {
                 JBConectar.setBorder(BorderFactory.createLineBorder(Color.black));
             }
 
+            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) 
             {
                 JBConectar.setBackground(Color.lightGray);
                 JBConectar.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             }
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt)
             {
                 JBConectar.setBackground(new Color(66, 244, 95));    
             }
             
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt)
             {
 
@@ -125,20 +135,24 @@ public class JPPrincipal extends JPanel implements ActionListener
         
         JBArquivo.addMouseListener(new java.awt.event.MouseAdapter() 
         {
+            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) 
             {
                 JBArquivo.setBorder(BorderFactory.createLineBorder(Color.black));
             }
 
+            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) 
             {
                 JBArquivo.setBackground(Color.lightGray);
                 JBArquivo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             }
+            @Override
             public void mousePressed(java.awt.event.MouseEvent evt)
             {
                 JBArquivo.setBackground(new Color(66, 244, 95));    
             }
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt)
             {
 
@@ -166,32 +180,35 @@ public class JPPrincipal extends JPanel implements ActionListener
         Image image = icon.getImage();
         Image newimg = image.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); 
         icon = new ImageIcon(newimg);
-        JLabel lblImg = new JLabel(icon, JLabel.CENTER);
+        JLabel lblImg = new JLabel(icon, JLabel.CENTER);  
 
         add(BorderLayout.NORTH,lblImg);
         add(BorderLayout.CENTER,JTAinfos);
        
-        JPanel jfs = new JPanel();
+        JPanel jps = new JPanel();
         GridLayout gl = new GridLayout(1,3);
-        jfs.setBackground(Color.darkGray);
-        jfs.setLayout(gl);
-        jfs.add(JBDiagnosticar);
-        jfs.add(JBConectar);
-        jfs.add(JBArquivo);
+        jps.setBackground(Color.darkGray);
+        jps.setLayout(gl);
+        jps.add(JBDiagnosticar);
+        jps.add(JBConectar);
+        jps.add(JBArquivo);
       
-        add(BorderLayout.SOUTH,jfs);  
+        add(BorderLayout.SOUTH,jps);  
         
         //medico instanciado
         medico = new Doctor();
     }
+   
     @Override
     public void actionPerformed(ActionEvent e) 
     {
         throw new UnsupportedOperationException("Ainda não suportado.");
     }
     
+    //evento do botao abrir arquivo
     private class AbrirArquivo implements ActionListener
     {
+        @Override
         public void actionPerformed (ActionEvent e)
     	{  
             try
@@ -221,11 +238,12 @@ public class JPPrincipal extends JPanel implements ActionListener
                     JBDiagnosticar.setEnabled(true);
                 }
             }
-            catch (Exception ex)
+            catch (HeadlessException ex)
             {}
     	}
     }
     
+    //evento do botao conectar
     private class RedeConectar implements ActionListener
     {
         @Override
@@ -233,16 +251,23 @@ public class JPPrincipal extends JPanel implements ActionListener
     	{
             try
             {
+                //conecta-se ao paciente
                 socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
+                //recebe dados do paciente e transforma em string
                 ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
                 String pacInfos = (String)ois.readObject();
-                JTAinfos.setText(pacInfos);
+                
+                JTAinfos.setText(pacInfos);//teste: remover depois
+                
+                //fecha conexao
                 socket.close();
                 
+                //transforma dados do paciente em um vetor
                 String vetInfos[] = pacInfos.split(",");
                 dataset = new DataSetComponent();
                 
                 
+                //verifica em qual dos arquivos o paciente pertence
                 switch(vetInfos[0])
                 {
                 case "1":
@@ -262,21 +287,32 @@ public class JPPrincipal extends JPanel implements ActionListener
                 //habilita botao de diagnostico
                 JBDiagnosticar.setEnabled(true);
             }
-            catch(Exception ex)
+            catch(IOException | ClassNotFoundException | NumberFormatException ex)
             {
                 JOptionPane.showMessageDialog(null, "Servidor indisponível ou dados recebidos inválidos.", "Erro: ", JOptionPane.INFORMATION_MESSAGE);
             }
         }      
     }
     
+    //evento do botao diagnosticar
     private class RealizaDiagnostico implements ActionListener
     {
+        @Override
         public void actionPerformed (ActionEvent e)
     	{
+            //desativa opcao de diagnostico
             JBDiagnosticar.setEnabled(false);
+            
+            //conecta o medico à tabela
             medico.connect(dataset);
+            
+            //conecta o medico ao paciente
             medico.connect(paciente);
+            
+            //realiza o diagnóstico da doença
             String doenca = medico.startInterview();
+            
+            //escreve o diagnóstico na tela
             JTAinfos.setText(doenca);
         }      
     }
