@@ -275,7 +275,7 @@ public class JPPrincipal extends JPanel implements ActionListener
             medico.connect(dataset);
             medico.connect(paciente);
             String doenca = medico.startInterview();
-            JTAinfos.setText("O paciente tem: "+doenca);
+            JTAinfos.setText(doenca);
         }      
     }
 }

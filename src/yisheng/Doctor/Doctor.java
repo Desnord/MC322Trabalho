@@ -23,9 +23,6 @@ public class Doctor implements IDoctor
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
-        melhorPergunta(attributes, instances);
-        //chamar o método de encontrar a melhor pergunta
-        
         return "";
     }
     public void connect(IResponder responder)
@@ -36,7 +33,9 @@ public class Doctor implements IDoctor
     {
         this.producer = producer;
     }
-    public void melhorPergunta(String attributes[], String instance[][]){
+    public String melhorPergunta(String a, String b){
         
+    }
+    public String VetorDeMelhoresPerguntas(String attributes, String instance){
     }
 }
