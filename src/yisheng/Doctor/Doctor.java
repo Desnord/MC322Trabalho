@@ -68,5 +68,25 @@ public class Doctor implements IDoctor
         }
         return res;
     }
+        public void Diagnostico(String att[], String ins[][], int melhor[]) {
+        boolean resposta;
+        
+        // Perguntar pro paciente
+        // Criar uma matriz igual a ins[][]
+        // Nessa matriz colocar 0 nas linhas que nao correspondem
+        // Passar um laço verificando se a ultima coluna, das doencas, só tem um tipo de doença
+        // Se tiver uma só doença retorna ela. Caso não, retorna a matriz para a melhor pergunta
+            String[][] aux_ins = new String[ins.length][ins[1].length];
+            
+            for(int i = 0; i< ins.length; i++)
+                for(int j = 0; j< ins[i].length; j++)
+                    ins[i][j] = aux_ins[i][j];
+        
+            if(resposta) {
+                
+            }
+            else {
+            }
+        }
   
 }
