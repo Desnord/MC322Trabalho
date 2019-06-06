@@ -50,10 +50,10 @@ public class Doctor implements IDoctor
     {
         this.producer = producer;
     }
-    public int[] melhorPergunta(String att[], String ins[][]){
+    public int melhorPergunta(String att[], String ins[][]){
         int[][] cont = new int[att.length - 1][4]; 
         int aux_t = 0, aux_f = 0;
-        int[] res = new int[att.length - 1], aux = new int[4];
+        int[] aux = new int[4];
         for(int j = 0; j < att.length - 1; j++){
             for (int i = 0; i < ins.length; i++){
                 if(ins[i][j].equals("f"))
@@ -65,45 +65,38 @@ public class Doctor implements IDoctor
             cont[j][1] = aux_f;
             cont[j][2] = j;
             cont[j][3] = Math.abs(aux_t - aux_f);
-            System.out.println("[ " + cont[j][0] + " " + cont[j][1] + " " + cont[j][2] +  " " +  cont[j][3] + " ]");
             aux_t = 0;
             aux_f = 0;
         }
-        for(int a = cont.length; a>= 1; a--){
-            for(int b = 1; b< a; b++){
-                if(cont[b - 1][3] > cont[b][3]){
-                    aux[0] = cont[b][0]; aux[1] = cont[b][1]; aux[2] = cont[b][2]; aux[3] = cont[b][3];
-                    cont[b][0] = cont[b - 1][0]; cont[b][1] = cont[b - 1][1]; cont[b][2] = cont[b - 1][2]; cont[b][3] = cont[b - 1][3];
-                    cont[b - 1][0] = aux[0];cont[b - 1][1] = aux[1];cont[b - 1][2] = aux[2];cont[b - 1][3] = aux[3];
-                }
+        for(int b = 1; b < cont.length; b++){
+            if(cont[b - 1][3] > cont[b][3]){
+                aux[0] = cont[b][0]; aux[1] = cont[b][1]; aux[2] = cont[b][2]; aux[3] = cont[b][3];
+                cont[b][0] = cont[b - 1][0]; cont[b][1] = cont[b - 1][1]; cont[b][2] = cont[b - 1][2]; cont[b][3] = cont[b - 1][3];
+                cont[b - 1][0] = aux[0];cont[b - 1][1] = aux[1];cont[b - 1][2] = aux[2];cont[b - 1][3] = aux[3];
             }
         }
-        for(int z = 0; z < res.length; z++){
-            res[z] = cont[z][2];
-            System.out.println(res[z]);
-        }
-        return res;
+        return cont[0][2];
     }
-        public void Diagnostico(String att[], String ins[][], int melhor[]) {
-        boolean resposta;
-        
+    public void Diagnostico(String att[], String ins[][], int melhor[]) {
+        boolean resposta = true;
+
         // Perguntar pro paciente
         // Criar uma matriz igual a ins[][]
         // Nessa matriz colocar 0 nas linhas que nao correspondem
         // Passar um laço verificando se a ultima coluna, das doencas, só tem um tipo de doença
         // Se tiver uma só doença retorna ela. Caso não, retorna a matriz para a melhor pergunta
             String[][] aux_ins = new String[ins.length][ins[1].length];
-            
+
             for(int i = 0; i< ins.length; i++)
                 for(int j = 0; j< ins[i].length; j++)
                     ins[i][j] = aux_ins[i][j];
-        
+
             if(resposta) {
-                
+
             }
             else {
             }
-        }
+    }
   
     public String VetorDeMelhoresPerguntas(String attributes[], String instances[][]){
         melhorPergunta(attributes, instances);
