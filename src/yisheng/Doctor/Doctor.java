@@ -78,24 +78,28 @@ public class Doctor implements IDoctor
         return cont[0][2];
     }
     public void Diagnostico(String att[], String ins[][], int melhor[]) {
-        boolean resposta = true;
+        String[][] aux_ins = new String[ins.length][ins[1].length];
+        
+        while(True) {
+            String resposta = responder.ask(att[melhorPergunta(att, aux_ins)]);
 
-        // Perguntar pro paciente
-        // Criar uma matriz igual a ins[][]
-        // Nessa matriz colocar 0 nas linhas que nao correspondem
-        // Passar um laço verificando se a ultima coluna, das doencas, só tem um tipo de doença
-        // Se tiver uma só doença retorna ela. Caso não, retorna a matriz para a melhor pergunta
-            String[][] aux_ins = new String[ins.length][ins[1].length];
+            // Perguntar pro paciente
+            // Criar uma matriz igual a ins[][]
+            // Nessa matriz colocar 0 nas linhas que nao correspondem
+            // Passar um laço verificando se a ultima coluna, das doencas, só tem um tipo de doença
 
-            for(int i = 0; i< ins.length; i++)
-                for(int j = 0; j< ins[i].length; j++)
-                    ins[i][j] = aux_ins[i][j];
+            // Se tiver uma só doença retorna ela. Caso não, retorna a matriz para a melhor pergunta
 
-            if(resposta) {
+                for(int i = 0; i< ins.length; i++)
+                    for(int j = 0; j< ins[i].length; j++)
+                        ins[i][j] = aux_ins[i][j];
 
-            }
-            else {
-            }
+                if(resposta.equals("yes")) {
+
+                }
+                else {
+                }
+        }
     }
   
     public String VetorDeMelhoresPerguntas(String attributes[], String instances[][]){
