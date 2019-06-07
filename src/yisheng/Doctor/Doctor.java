@@ -115,7 +115,7 @@ public class Doctor implements IDoctor
                             aux_ins[i][k] = "";
                         }
                     }
-                    i++;
+                    //i++;
                 }
             }
             else {
@@ -125,7 +125,7 @@ public class Doctor implements IDoctor
                             aux_ins[i][k] = "";
                         }
                     }
-                    i++;
+                    //i++;
                 }
             }
 
@@ -199,27 +199,28 @@ public class Doctor implements IDoctor
           c = 0;
         }
     }
-    public void adicionaDoenca(){
+    public void adicionaDoenca()
+    {
         FileWriter arquivo;
-        PrintWriter formatado;
         try {
           // o segundo parametro indica se fara append ou nao
-          arquivo = new FileWriter("zombie-health-cases500.csv", true); //colocar o nome certo do arquivo
-          formatado = new PrintWriter(arquivo);
+          arquivo = new FileWriter("zombie-health-cases500.csv", true);
           for (int i = 0; i <= this.instances.length; i++) {
             if (i == this.instances.length) {
               for (int j = 0; j < this.attributes.length; j++) {
                 if (j == this.attributes.length-1) {
-                  formatado.println(this.doenca); //coloca o nome da doenca
+                    arquivo.append(this.doenca);
+                    //coloca o nome da doenca
                 }
                 else {
-                  formatado.println(this.sintomas[j]+ ","); //nao sei se isso funciona, mas preciso adicionar a virgula
+                  arquivo.append(this.sintomas[j]+ ","); //nao sei se isso funciona, mas preciso adicionar a virgula
                   //coloca t ou f
                 }
               }
             }
           }
-          formatado.close();
+          arquivo.flush();  
+          arquivo.close();
           System.out.println("Gravacao realizada com sucesso!");
         }
         catch (IOException erro) {
