@@ -34,8 +34,8 @@ public class Doctor implements IDoctor
     
     private ITableProducer producer;
     private IResponder responder;
-    
-    public String startInterview()
+
+    public String startInterview ()
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
@@ -85,6 +85,7 @@ public class Doctor implements IDoctor
                 cont[b - 1][0] = aux[0];cont[b - 1][1] = aux[1];cont[b - 1][2] = aux[2];cont[b - 1][3] = aux[3];
             }
         }
+        System.out.println(cont[0][2]);
         return cont[0][2];
     }
 
@@ -101,9 +102,12 @@ public class Doctor implements IDoctor
                 aux_ins[i][j] = ins[i][j];
             }
         }
+        int aux = 0;
+        while(aux == 0) {
 
-        while(true) {
-            String resposta = responder.ask(att[coluna]);
+            String resposta = responder.ask(att[coluna]); // Coluna referente a pergunta
+
+            //Substituicao por "" em linhas que nao se adequam
             if(resposta.equals("yes")) { // for t
                 for(int i = 0; i < altura; i++) {
                     if (aux_ins[i][coluna].equals("f")) {
@@ -125,37 +129,37 @@ public class Doctor implements IDoctor
                 }
             }
 
-            // Verificar quais doencas sobraram
+            // Primeira doenca valida(se existir)
             String doenca = "";
-            for(int i = 0; i < altura; i ++)
-                if(!aux_ins[i][largura-1].equals(""))
-                    doenca = aux_ins[i][largura-1]; //Primeira doenca valida
-
-            int ver = 0; //Verificador
             for(int i = 0; i < altura; i ++) {
-                if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, PARA
-                    ver = 1;
+                if (!aux_ins[i][largura - 1].equals("")) {
+                    doenca = aux_ins[i][largura - 1];
                     break;
                 }
             }
 
-            if(ver == 0) { // Ou tem uma doenca Ou tem nenhuma doenca
-                //Descobrir se tem alguma entrada válida, caso não, não tem doença correspondente
+            int ver = 0;
+            for(int i = 0; i < altura; i ++) {
+                if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, retorna para o inicio
+                    ver = 1;
+                    coluna = melhorPergunta(att, aux_ins);
+                    break;
+                }
+            }
+
+            if(ver == 0) { // So resta uma doenca ou nao encontrou nenhuma doenca
+                aux = 1; // Parar o loop
+
                 int x = 0;
                 for(int i = 0; i < altura; i ++) {
                     if(!aux_ins[i][largura - 1].equals("")) {
                         x = 1;
-                        System.out.println("O chupinga tem: " + aux_ins[i][largura - 1]);
+                        System.out.println("O chupinga tem: " + aux_ins[i][largura - 1]); // Encontrou a doenca
                     }
                 }
                 if(x == 0) {
-                    System.out.println("Doenca desconhecida");
+                    System.out.println("Doenca desconhecida"); // Doenca desconhecida
                 }
-                break;
-            }
-
-            else {
-                coluna = melhorPergunta(att, aux_ins); // Matriz ja esta modificada
             }
         }
     }
