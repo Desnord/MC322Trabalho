@@ -85,7 +85,6 @@ public class Doctor implements IDoctor
                 cont[b - 1][0] = aux[0];cont[b - 1][1] = aux[1];cont[b - 1][2] = aux[2];cont[b - 1][3] = aux[3];
             }
         }
-        System.out.println(cont[0][2]);
         return cont[0][2];
     }
 
@@ -95,7 +94,7 @@ public class Doctor implements IDoctor
         int altura = ins.length;
         int largura = ins[1].length;
         String[][] aux_ins = new String[altura][largura];
-        int coluna = melhorPergunta(att, ins, 0);
+        int coluna = melhorPergunta(att, ins);
 
         for(int i = 0; i < altura; i++) {
             for (int j = 0; j < largura; j++){
@@ -142,7 +141,7 @@ public class Doctor implements IDoctor
                 if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, retorna para o inicio
                     ver = 1;
                     ce++;
-                    coluna = melhorPergunta(att, aux_ins,ce);
+                    coluna = melhorPergunta(att, aux_ins);
                     break;
                 }
             }
