@@ -44,7 +44,6 @@ public class JPPrincipal extends JPanel implements ActionListener
     private IPatient paciente;
     private IDataSet dataset;
     
-    private Socket socket;
     private JButton JBDiagnosticar,JBConectar,JBArquivo;
     private JTextArea JTAinfos; 
     
@@ -252,12 +251,12 @@ public class JPPrincipal extends JPanel implements ActionListener
             try
             {
                 //conecta-se ao paciente
-                socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
+                Socket socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
                 //recebe dados do paciente e transforma em string
                 ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
                 String pacInfos = (String)ois.readObject();
                 
-                JTAinfos.setText(pacInfos);//teste: remover depois
+                //JTAinfos.setText(pacInfos);
                 
                 //fecha conexao
                 socket.close();
