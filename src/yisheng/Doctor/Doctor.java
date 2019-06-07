@@ -39,7 +39,7 @@ public class Doctor implements IDoctor
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
-        melhorPergunta(attributes, instances);
+        Diagnostico(attributes, instances);
         return null;
     }
     public void connect(IResponder responder)
@@ -61,12 +61,22 @@ public class Doctor implements IDoctor
                 else if(ins[i][j].equals("t"))
                     aux_t += 1;
             }
-            cont[j][0] = aux_t;
-            cont[j][1] = aux_f;
-            cont[j][2] = j;
-            cont[j][3] = Math.abs(aux_t - aux_f);
-            aux_t = 0;
-            aux_f = 0;
+            if( aux_t != 0 || aux_f != 0){
+                cont[j][0] = aux_t;
+                cont[j][1] = aux_f;
+                cont[j][2] = j;
+                cont[j][3] = Math.abs(aux_t - aux_f);
+                aux_t = 0;
+                aux_f = 0;
+            }
+            else{
+                cont[j][0] = aux_t;
+                cont[j][1] = aux_f;
+                cont[j][2] = j;
+                cont[j][3] = 1000000;
+                aux_t = 0;
+                aux_f = 0;
+            }
         }
         for(int b = 1; b < cont.length; b++){
             if(cont[b - 1][3] > cont[b][3]){
@@ -84,11 +94,12 @@ public class Doctor implements IDoctor
         int altura = ins.length;
         int largura = ins[1].length;
         String[][] aux_ins = new String[altura][largura];
-        int coluna = melhorPergunta(att, aux_ins);
+        int coluna = melhorPergunta(att, ins);
 
         for(int i = 0; i < altura; i++) {
-            for (int j = 0; j < largura; j++)
-                ins[i][j] = aux_ins[i][j];
+            for (int j = 0; j < largura; j++){
+                aux_ins[i][j] = ins[i][j];
+            }
         }
 
         while(true) {
@@ -130,7 +141,6 @@ public class Doctor implements IDoctor
 
             if(ver == 0) { // Ou tem uma doenca Ou tem nenhuma doenca
                 //Descobrir se tem alguma entrada válida, caso não, não tem doença correspondente
-
                 break;
             }
 
@@ -140,10 +150,6 @@ public class Doctor implements IDoctor
         }
     }
   
-    public String VetorDeMelhoresPerguntas(String attributes[], String instances[][]){
-        melhorPergunta(attributes, instances);
-        return null;
-    }
     public void matrizArquivo() { //de 0 a 19
         ds.setDataSource("./src/yisheng/csv/zombie-health-cases500.csv");
         this.attributes = ds.requestAttributes();
