@@ -141,14 +141,14 @@ public class Doctor implements IDoctor
 
             if(ver == 0) { // Ou tem uma doenca Ou tem nenhuma doenca
                 //Descobrir se tem alguma entrada válida, caso não, não tem doença correspondente
-                int triceratops = 0;
-                for(int tiranossauro = 0; tiranossauro < altura; tiranossauro ++) {
+                int x = 0;
+                for(int i = 0; i < altura; i ++) {
                     if(!aux_ins[i][largura - 1].equals("")) {
-                        triceratops = 1;
+                        x = 1;
                         System.out.println("O chupinga tem: " + aux_ins[i][largura - 1]);
                     }
                 }
-                if(triceratops == 0) {
+                if(x == 0) {
                     System.out.println("Doenca desconhecida");
                 }
                 break;
