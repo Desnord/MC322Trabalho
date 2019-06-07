@@ -77,28 +77,66 @@ public class Doctor implements IDoctor
         }
         return cont[0][2];
     }
-    public void Diagnostico(String att[], String ins[][], int melhor[]) {
-        String[][] aux_ins = new String[ins.length][ins[1].length];
-        
-        while(True) {
-            String resposta = responder.ask(att[melhorPergunta(att, aux_ins)]);
 
-            // Perguntar pro paciente
-            // Criar uma matriz igual a ins[][]
-            // Nessa matriz colocar 0 nas linhas que nao correspondem
-            // Passar um laço verificando se a ultima coluna, das doencas, só tem um tipo de doença
+    public void Diagnostico(String att[], String ins[][]) {
 
-            // Se tiver uma só doença retorna ela. Caso não, retorna a matriz para a melhor pergunta
+        //Copia a matriz de instancias
+        int altura = ins.length;
+        int largura = ins[1].length;
+        String[][] aux_ins = new String[altura][largura];
+        int coluna = melhorPergunta(att, aux_ins);
 
-                for(int i = 0; i< ins.length; i++)
-                    for(int j = 0; j< ins[i].length; j++)
-                        ins[i][j] = aux_ins[i][j];
+        for(int i = 0; i < altura; i++) {
+            for (int j = 0; j < largura; j++)
+                ins[i][j] = aux_ins[i][j];
+        }
 
-                if(resposta.equals("yes")) {
-
+        while(true) {
+            String resposta = responder.ask(att[coluna]);
+            if(resposta.equals("yes")) { // for t
+                for(int i = 0; i < altura; i++) {
+                    if (aux_ins[i][coluna].equals("f")) {
+                        for(int k = 0; k < largura; k++) {
+                            aux_ins[i][k] = "";
+                        }
+                    }
+                    i++;
                 }
-                else {
+            }
+            else {
+                for(int i = 0; i < altura; i++) {
+                    if (aux_ins[i][coluna].equals("t")) {
+                        for(int k = 0; k < largura; k++) {
+                            aux_ins[i][k] = "";
+                        }
+                    }
+                    i++;
                 }
+            }
+
+            // Verificar quais doencas sobraram
+            String doenca = "";
+            for(int i = 0; i < altura; i ++)
+                if(!aux_ins[i][largura-1].equals(""))
+                    doenca = aux_ins[i][largura-1]; //Primeira doenca valida
+
+            int ver = 0; //Verificador
+            for(int i = 0; i < altura; i ++) {
+                if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, PARA
+                    ver = 1;
+                    break;
+                }
+            }
+
+            if(ver == 0) { // Ou tem uma doenca Ou tem nenhuma doenca
+                //Descobrir se tem alguma entrada válida, caso não, não tem doença correspondente
+
+                break;
+            }
+
+            else {
+                coluna = melhorPergunta(att, aux_ins); // Matriz ja esta modificada
+            }
         }
     }
   
