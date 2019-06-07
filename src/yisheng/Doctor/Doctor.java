@@ -89,43 +89,51 @@ public class Doctor implements IDoctor
         return cont[0][2];
     }
 
-    public void Diagnostico(String att[], String ins[][]) {
+   public void Diagnostico(String att[], String ins[][]) {
 
         //Copia a matriz de instancias
         int altura = ins.length;
         int largura = ins[1].length;
         String[][] aux_ins = new String[altura][largura];
-        int coluna = melhorPergunta(att, ins);
+        //int coluna = melhorPergunta(att, ins, 0);
+        int coluna = 0;
 
         for(int i = 0; i < altura; i++) {
             for (int j = 0; j < largura; j++){
                 aux_ins[i][j] = ins[i][j];
             }
         }
-        int aux = 0;
-        while(aux == 0) {
+        int aux = 0, ce = 0;
+        while(aux == 0 && ce < 9) {
 
             String resposta = responder.ask(att[coluna]); // Coluna referente a pergunta
 
             //Substituicao por "" em linhas que nao se adequam
-            if(resposta.equals("yes")) { // for t
+
+            
+            if(resposta.equals("yes")) {
                 for(int i = 0; i < altura; i++) {
-                    if (aux_ins[i][coluna].equals("f")) {
-                        for(int k = 0; k < largura; k++) {
+                    if (aux_ins[i][coluna].equals("f")) { // Deve-se trocar a linha que tem f por ""
+                        for (int k = 0; k < largura; k++) {
                             aux_ins[i][k] = "";
                         }
                     }
-                    //i++;
                 }
             }
             else {
                 for(int i = 0; i < altura; i++) {
-                    if (aux_ins[i][coluna].equals("t")) {
+                    if (aux_ins[i][coluna].equals("t")) { // Deve-se trocar a linha que tem t por ""
                         for(int k = 0; k < largura; k++) {
                             aux_ins[i][k] = "";
                         }
                     }
-                    //i++;
+
+                }
+            }
+
+            for(int i = 0; i < altura; i++) {
+                for (int j = 0; j < largura; j++) {
+                    System.out.println(aux_ins[i][j]);
                 }
             }
 
@@ -142,7 +150,9 @@ public class Doctor implements IDoctor
             for(int i = 0; i < altura; i ++) {
                 if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, retorna para o inicio
                     ver = 1;
-                    coluna = melhorPergunta(att, aux_ins);
+                    ce++;
+                    //coluna = melhorPergunta(att, aux_ins,ce);
+                    coluna = ce;
                     break;
                 }
             }
@@ -155,6 +165,7 @@ public class Doctor implements IDoctor
                     if(!aux_ins[i][largura - 1].equals("")) {
                         x = 1;
                         System.out.println("O chupinga tem: " + aux_ins[i][largura - 1]); // Encontrou a doenca
+                        break;
                     }
                 }
                 if(x == 0) {
