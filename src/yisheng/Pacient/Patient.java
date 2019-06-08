@@ -19,6 +19,14 @@ public class Patient implements IPatient {
     private String attributes[];
     private String patientInstance[];
     
+    public void setaSintomas(String infos[])
+    {        
+        for(int i=0; i<attributes.length - 1; i++)
+        {
+            patientInstance[i] = infos[i];
+        }
+    }
+    
     public void connect(ITableProducer producer) {
         this.producer = producer;
 

@@ -13,4 +13,6 @@ import yisheng.Reference.IResponder;
  * @author Thomas
  */
 public interface IPatient extends IResponder, ITableProducerReceptacle 
-{}
+{
+    public void setaSintomas(String s[]);
+}
