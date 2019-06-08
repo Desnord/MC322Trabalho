@@ -39,8 +39,7 @@ public class Doctor implements IDoctor
     {
         String attributes[] = producer.requestAttributes();
         String instances[][] = producer.requestInstances();
-        Diagnostico(attributes, instances);
-        return null;
+        return Diagnostico(attributes, instances);
     }
     public void connect(IResponder responder)
     {
