@@ -88,7 +88,8 @@ public class Doctor implements IDoctor
         return cont[0][2];
     }
 
-   public String Diagnostico(String att[], String ins[][]) {
+   public String Diagnostico(String att[], String ins[][]) 
+   {
 
         //Copia a matriz de instancias
         int altura = ins.length;
@@ -96,30 +97,41 @@ public class Doctor implements IDoctor
         String[][] aux_ins = new String[altura][largura];
         int coluna = melhorPergunta(att, ins);
 
-        for(int i = 0; i < altura; i++) {
-            for (int j = 0; j < largura; j++){
+        for(int i = 0; i < altura; i++) 
+        {
+            for (int j = 0; j < largura; j++)
+            {
                 aux_ins[i][j] = ins[i][j];
             }
         }
         int aux = 0, ce = 0;
-        while(aux == 0 && ce < att.length) {
-
+        
+        while(aux == 0 && ce < att.length) 
+        {
             String resposta = responder.ask(att[coluna]); // Coluna referente a pergunta
 
             //Substituicao por "" em linhas que nao se adequam
-            if(resposta.equals("yes")) {
-                for(int i = 0; i < altura; i++) {
-                    if (aux_ins[i][coluna].equals("f")) { // Deve-se trocar a linha que tem f por ""
-                        for (int k = 0; k < largura; k++) {
+            if(resposta.equals("yes")) 
+            {
+                for(int i = 0; i < altura; i++) 
+                {
+                    if (aux_ins[i][coluna].equals("f")) 
+                    { // Deve-se trocar a linha que tem f por ""
+                        for (int k = 0; k < largura; k++) 
+                        {
                             aux_ins[i][k] = "";
                         }
                     }
                 }
             }
-            else {
-                for(int i = 0; i < altura; i++) {
-                    if (aux_ins[i][coluna].equals("t")) { // Deve-se trocar a linha que tem t por ""
-                        for(int k = 0; k < largura; k++) {
+            else 
+            {
+                for(int i = 0; i < altura; i++) 
+                {
+                    if (aux_ins[i][coluna].equals("t")) 
+                    { // Deve-se trocar a linha que tem t por ""
+                        for(int k = 0; k < largura; k++) 
+                        {
                             aux_ins[i][k] = "";
                         }
                     }
@@ -129,16 +141,20 @@ public class Doctor implements IDoctor
 
             // Primeira doenca valida(se existir)
             String doenca = "";
-            for(int i = 0; i < altura; i ++) {
-                if (!aux_ins[i][largura - 1].equals("")) {
+            for(int i = 0; i < altura; i ++) 
+            {
+                if (!aux_ins[i][largura - 1].equals("")) 
+                {
                     doenca = aux_ins[i][largura - 1];
                     break;
                 }
             }
 
             int ver = 0;
-            for(int i = 0; i < altura; i ++) {
-                if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca)) { // Mais de uma doenca, retorna para o inicio
+            for(int i = 0; i < altura; i ++) 
+            {
+                if (!aux_ins[i][largura - 1].equals("") && !aux_ins[i][largura - 1].equals(doenca))
+                { // Mais de uma doenca, retorna para o inicio
                     ver = 1;
                     ce++;
                     coluna = melhorPergunta(att, aux_ins);
@@ -146,33 +162,40 @@ public class Doctor implements IDoctor
                 }
             }
 
-            if(ver == 0) { // So resta uma doenca ou nao encontrou nenhuma doenca
+            if(ver == 0)
+            { // So resta uma doenca ou nao encontrou nenhuma doenca
                 aux = 1; // Parar o loop
 
                 int x = 0;
-                for(int i = 0; i < altura; i ++) {
-                    if(!aux_ins[i][largura - 1].equals("")) {
+                for(int i = 0; i < altura; i ++) 
+                {
+                    if(!aux_ins[i][largura - 1].equals("")) 
+                    {
                         x = 1;
-                        System.out.println("O chupinga tem: " + aux_ins[i][largura - 1]); // Encontrou uma unica doenca
-                        return null;
+                        return "O paciente tem: " + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
                 }
-                if(x == 0) {
-                    System.out.println("Doenca desconhecida"); // Doenca desconhecida
+                if(x == 0)
+                {
+                    return "Doenca desconhecida"; // Doenca desconhecida
                 }
             }
         }
         ArrayList<String> conj = new ArrayList<>(1);
 
-        for(int i = 0; i < altura; i ++) {
-            if (!aux_ins[i][largura - 1].equals("")) {
-                if (!conj.contains(aux_ins[i][largura - 1])) {
+        for(int i = 0; i < altura; i ++)
+        {
+            if (!aux_ins[i][largura - 1].equals("")) 
+            {
+                if (!conj.contains(aux_ins[i][largura - 1]))
+                {
                     conj.add(aux_ins[i][largura - 1]);
                 }
             }
         }
 
-        for (int i = 0; i < conj.size(); i++) {
+        for (int i = 0; i < conj.size(); i++) 
+        {
             for (String s:conj)
                 System.out.println(s);
         }

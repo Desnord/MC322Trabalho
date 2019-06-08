@@ -265,7 +265,6 @@ public class JPPrincipal extends JPanel implements ActionListener
                 String vetInfos[] = pacInfos.split(",");
                 dataset = new DataSetComponent();
                 
-                
                 //verifica em qual dos arquivos o paciente pertence
                 switch(vetInfos[0])
                 {
