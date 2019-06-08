@@ -266,21 +266,19 @@ public class JPPrincipal extends JPanel implements ActionListener
                 dataset = new DataSetComponent();
                 
                 //verifica em qual dos arquivos o paciente pertence
-                switch(vetInfos[0])
-                {
-                case "1":
+                if(vetInfos[0].equals("1"))
                     dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
-                case "2":
+                else if(vetInfos[0].equals("2"))
                     dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
-                case "3":
+                else if(vetInfos[0].equals("3"))
                     dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
-                case "4":
+                else if(vetInfos[0].equals("4"))
                     dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
-                }
            
                 //seleciona um novo paciente para diagnosticar
                 paciente = new Patient();
                 paciente.connect(dataset);
+                paciente.setaSintomas(vetInfos);
                 
                 //habilita botao de diagnostico
                 JBDiagnosticar.setEnabled(true);
