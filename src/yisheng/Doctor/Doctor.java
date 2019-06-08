@@ -194,11 +194,9 @@ public class Doctor implements IDoctor
             }
         }
 
-        for (int i = 0; i < conj.size(); i++) 
-        {
-            for (String s:conj)
+        for (String s:conj)
                 System.out.println(s);
-        }
+        
         return null;
     }
   
