@@ -78,12 +78,6 @@ public class Doctor implements IDoctor
                 }
             }
         }
-        System.out.print("[");
-        for(int i = 0; i < cont.length; i++){
-            resp[i] = cont[i][2];
-            System.out.print(" " + resp[i] + " ");
-        }
-        System.out.println("]");
         return resp;
     }
     
@@ -94,8 +88,7 @@ public class Doctor implements IDoctor
         int altura = ins.length;
         int largura = ins[1].length;
         String[][] aux_ins = new String[altura][largura];
-        //int coluna = melhorPergunta(att, ins);
-        int coluna = 0; //temporaria
+
 
         for(int i = 0; i < altura; i++) 
         {
@@ -104,9 +97,12 @@ public class Doctor implements IDoctor
                 aux_ins[i][j] = ins[i][j];
             }
         }
-        int aux = 0, ce = 0;
+
+       int col[] = melhorPergunta(att, aux_ins);
+       int coluna = col[0];
+        int ce = 0;
         
-        while(aux == 0 && ce < att.length) 
+        while(ce < att.length)
         {
             String resposta = responder.ask(att[coluna]); // Coluna referente a pergunta
 
@@ -158,28 +154,23 @@ public class Doctor implements IDoctor
                     ver = 1;
                     ce++;
                     //coluna = melhorPergunta(att, aux_ins);
-                    coluna = ce; // temporaria
+                    coluna = col[ce]; // temporaria
                     break;
                 }
             }
 
             if(ver == 0)
             { // So resta uma doenca ou nao encontrou nenhuma doenca
-                aux = 1; // Parar o loop
-
                 int x = 0;
                 for(int i = 0; i < altura; i ++) 
                 {
                     if(!aux_ins[i][largura - 1].equals("")) 
                     {
-                        x = 1;
                         return "O paciente tem: " + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
                 }
-                if(x == 0)
-                {
-                    return "Doenca desconhecida"; // Doenca desconhecida
-                }
+                return "Doenca desconhecida"; // Doenca desconhecida
+
             }
         }
         ArrayList<String> conj = new ArrayList<>(1);
@@ -209,7 +200,7 @@ public class Doctor implements IDoctor
     }
     //essa parte cria o vetor com os sintomas do paciente
     public void adicionaSintoma(boolean resp, int pos){
-      if (resp == true) {
+      if (resp) {
         this.sintomas[pos] = 't';
         this.quantSintomas += 1;
       }
