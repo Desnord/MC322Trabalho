@@ -165,6 +165,8 @@ public class JPPrincipal extends JPanel implements ActionListener
         TitledBorder linha = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray),"Diagnóstico:");
         linha.setTitleColor(Color.black);
         JTAinfos.setBorder(linha);
+        JTAinfos.setLineWrap(true);
+        JTAinfos.setWrapStyleWord(true);
         JTAinfos.setEditable(false);
         
         //adiciona eventos dos botoes
