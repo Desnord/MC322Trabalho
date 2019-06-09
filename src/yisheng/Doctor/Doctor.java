@@ -94,7 +94,8 @@ public class Doctor implements IDoctor
         int altura = ins.length;
         int largura = ins[1].length;
         String[][] aux_ins = new String[altura][largura];
-        int coluna = melhorPergunta(att, ins);
+        //int coluna = melhorPergunta(att, ins);
+        int coluna = 0; //temporaria
 
         for(int i = 0; i < altura; i++) 
         {
@@ -156,7 +157,8 @@ public class Doctor implements IDoctor
                 { // Mais de uma doenca, retorna para o inicio
                     ver = 1;
                     ce++;
-                    coluna = melhorPergunta(att, aux_ins);
+                    //coluna = melhorPergunta(att, aux_ins);
+                    coluna = ce; // temporaria
                     break;
                 }
             }
