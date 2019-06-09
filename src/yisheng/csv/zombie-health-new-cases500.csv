@@ -1,13 +1,13 @@
-Paralisia,Lingua Amarela,Dedo Tremendo,Perda de Membro,Dor no Peito,Raiva Severa,Olho vermelho,Pele azul,Diagnóstico
+Paralisia,Lingua Amarela,Dedo Tremendo,Perda de Membro,Dor no Peito,Raiva Severa,Olho vermelho,Pele azul,Diagnostico
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,f,f,f,f,Infecção Bacteriana
+f,f,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,t,f,t,T-Virus
 f,f,t,t,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 t,f,f,f,f,f,t,t,Gripe Aviaria
@@ -16,17 +16,17 @@ f,f,f,t,f,t,f,f,Briga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,f,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,f,t,f,t,T-Virus
 f,t,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,t,f,f,f,f,Infecção Bacteriana
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,t,f,t,f,f,Briga
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,t,t,f,t,Briga
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
@@ -38,123 +38,123 @@ f,t,t,f,f,f,f,f,Zulombriga
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,t,f,t,f,f,Briga
 f,f,t,f,f,t,f,t,T-Virus
-t,f,f,f,f,f,f,t,Infecção Bacteriana
+t,f,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,f,f,f,f,Infecção Viral
+f,f,f,f,f,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,t,t,f,f,Briga
 f,f,f,f,t,t,f,t,Briga
 f,f,f,f,f,t,f,t,T-Virus
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,f,Gripe Aviaria
 f,f,f,t,t,t,f,f,Briga
-f,t,f,f,f,f,t,t,Infecção Bacteriana
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,t,t,Infeccao Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,t,f,t,f,f,Briga
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,f,t,T-Virus
-f,t,f,t,f,f,f,t,Infecção Bacteriana
-f,f,f,f,t,f,f,f,Infecção Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,f,T-Virus
 f,f,t,f,f,t,f,t,T-Virus
-t,f,f,t,f,f,f,t,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+t,f,f,t,f,f,f,t,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,t,f,f,f,f,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,f,f,t,T-Virus
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
-t,t,f,t,f,f,f,f,Infecção Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,t,f,t,f,f,Briga
-t,t,f,t,f,f,f,f,Infecção Bacteriana
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,f,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,t,t,f,f,f,f,f,Zulombriga
 f,f,t,t,f,f,f,f,Zulombriga
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,t,t,t,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,f,f,f,f,f,Infecção Bacteriana
-t,t,f,t,f,f,f,t,Infecção Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
+t,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,t,f,t,f,f,Briga
-f,f,f,f,t,f,f,f,Infecção Viral
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,t,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,f,Gripe Aviaria
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 f,t,f,t,f,f,f,f,Zulombriga
 f,f,f,t,t,t,f,f,Briga
-f,t,f,t,f,f,f,t,Infecção Bacteriana
-f,f,f,f,t,f,f,f,Infecção Viral
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,t,t,f,f,f,Infecção Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,f,t,Gripe Aviaria
-t,t,f,f,f,f,f,f,Infecção Bacteriana
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,t,f,f,f,f,Zulombriga
-f,t,f,t,f,f,t,f,Infecção Bacteriana
+f,t,f,t,f,f,t,f,Infeccao Bacteriana
 f,f,f,t,f,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,t,Briga
 f,f,t,f,f,f,f,f,Zulombriga
-f,f,f,f,f,f,f,f,Infecção Viral
+f,f,f,f,f,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,t,T-Virus
 t,f,f,f,f,f,t,f,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
-f,t,f,t,f,f,f,f,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
+f,t,f,t,f,f,f,f,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,f,f,f,t,f,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+t,t,f,f,f,f,t,f,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,f,t,f,t,Briga
 f,t,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,t,t,t,f,f,Briga
@@ -168,63 +168,63 @@ f,f,f,t,t,t,f,t,Briga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,t,f,f,Briga
 f,t,t,t,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,f,t,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
-f,t,f,f,f,f,f,f,Infecção Bacteriana
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,t,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,f,Briga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,t,f,f,f,f,f,Zulombriga
-f,t,f,f,f,f,t,t,Infecção Bacteriana
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,t,t,Infeccao Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,f,t,f,t,f,f,Briga
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
 f,t,t,t,f,f,f,f,Zulombriga
-t,f,f,t,f,f,f,f,Infecção Bacteriana
-t,t,f,t,f,f,t,t,Infecção Bacteriana
+t,f,f,t,f,f,f,f,Infeccao Bacteriana
+t,t,f,t,f,f,t,t,Infeccao Bacteriana
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,Briga
 f,f,f,t,f,t,f,f,Briga
 f,f,f,f,f,t,f,t,T-Virus
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,t,f,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,t,t,f,f,f,f,Zulombriga
 f,t,t,t,f,f,f,f,Zulombriga
-f,f,f,f,f,f,f,f,Infecção Viral
+f,f,f,f,f,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,t,T-Virus
-f,f,f,t,t,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,t,Infecção Bacteriana
-t,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
+t,f,f,f,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 t,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,f,f,f,f,Infecção Viral
+f,f,f,t,f,f,f,f,Infeccao Viral
 f,f,f,t,f,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,t,t,t,f,f,Briga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,t,f,f,f,f,f,f,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
 f,f,t,f,f,t,f,f,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,t,t,f,t,Briga
 t,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,f,T-Virus
@@ -232,53 +232,53 @@ f,f,f,f,f,f,f,t,Gripe Aviaria
 f,f,f,f,f,f,t,f,Gripe Aviaria
 f,f,f,f,t,t,f,f,Briga
 f,t,t,t,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,f,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,T-Virus
-t,t,f,t,f,f,f,t,Infecção Bacteriana
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,t,f,f,f,t,Infeccao Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,t,t,f,f,f,Briga
 f,f,f,t,t,t,f,f,Briga
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,f,Briga
 f,f,t,f,f,t,f,t,T-Virus
-f,t,f,f,f,f,f,t,Infecção Bacteriana
-f,f,f,f,f,f,f,f,Infecção Viral
-t,t,f,t,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
+f,f,f,f,f,f,f,f,Infeccao Viral
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,t,f,t,T-Virus
 f,t,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,t,f,t,f,t,Briga
 f,t,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,t,T-Virus
 f,f,t,f,f,t,f,t,T-Virus
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,t,f,t,f,f,Briga
 f,f,f,f,f,t,f,f,Briga
@@ -292,7 +292,7 @@ f,f,t,f,f,t,f,t,T-Virus
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,t,f,t,T-Virus
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,f,Briga
 f,f,f,f,f,f,t,f,Gripe Aviaria
@@ -300,16 +300,16 @@ f,f,f,t,t,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,f,t,t,f,f,f,Briga
-f,t,f,f,f,f,f,t,Infecção Bacteriana
-f,f,f,t,f,f,f,f,Infecção Viral
-t,t,f,t,f,f,t,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
+f,f,f,t,f,f,f,f,Infeccao Viral
+t,t,f,t,f,f,t,t,Infeccao Bacteriana
 f,f,f,f,t,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
 f,f,f,f,t,t,f,f,Briga
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,t,f,t,T-Virus
 f,f,t,f,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,t,t,Gripe Aviaria
@@ -321,10 +321,10 @@ f,f,t,f,f,f,f,t,T-Virus
 f,f,f,f,f,f,f,t,Gripe Aviaria
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,t,t,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,t,f,t,f,f,Briga
 f,f,t,f,f,t,f,t,T-Virus
@@ -333,25 +333,25 @@ t,f,f,f,f,f,t,t,Gripe Aviaria
 f,t,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,t,f,f,f,t,Infecção Bacteriana
-t,t,f,f,f,f,f,f,Infecção Bacteriana
+t,t,f,t,f,f,f,t,Infeccao Bacteriana
+t,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,f,t,t,t,f,f,Briga
-t,t,f,f,f,f,t,f,Infecção Bacteriana
-t,f,f,f,t,f,f,f,Infecção Viral
-f,f,f,t,f,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,f,Infecção Bacteriana
+t,t,f,f,f,f,t,f,Infeccao Bacteriana
+t,f,f,f,t,f,f,f,Infeccao Viral
+f,f,f,t,f,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,f,f,f,f,t,t,Gripe Aviaria
-f,t,f,f,f,f,f,f,Infecção Bacteriana
-t,t,f,t,f,f,f,f,Infecção Bacteriana
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,t,t,f,f,Briga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,t,T-Virus
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,t,f,t,T-Virus
@@ -362,8 +362,8 @@ f,f,t,f,f,t,f,t,T-Virus
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,f,t,t,f,f,Briga
 f,f,f,f,f,f,t,f,Gripe Aviaria
-f,t,f,f,f,f,t,f,Infecção Bacteriana
-f,f,f,f,t,f,f,f,Infecção Viral
+f,t,f,f,f,f,t,f,Infeccao Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,t,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,t,f,t,T-Virus
 f,f,f,f,f,t,f,f,Briga
@@ -371,94 +371,94 @@ f,f,f,t,f,t,f,f,Briga
 f,t,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,T-Virus
 f,f,t,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,f,f,f,f,Infecção Viral
+f,f,f,f,f,f,f,f,Infeccao Viral
 f,f,f,f,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,T-Virus
-t,f,f,t,f,f,f,t,Infecção Bacteriana
+t,f,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
-f,t,f,f,f,f,f,f,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,t,f,f,f,f,f,f,Infeccao Bacteriana
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,f,t,Gripe Aviaria
 f,f,f,t,f,f,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 t,f,f,f,f,f,t,t,Gripe Aviaria
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,f,f,f,t,f,t,T-Virus
 f,t,t,t,f,f,f,f,Zulombriga
-t,f,f,t,t,f,f,f,Infecção Viral
+t,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,t,f,f,Briga
 f,f,f,f,t,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,f,t,T-Virus
 f,f,f,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,t,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,f,Zulombriga
-t,t,f,t,f,f,f,f,Infecção Bacteriana
+t,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,f,t,f,t,f,f,Briga
 f,f,f,f,t,t,f,t,Briga
 f,f,f,t,f,t,f,f,Briga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,t,f,f,T-Virus
-f,f,f,f,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,t,T-Virus
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,f,t,f,t,f,f,Briga
 f,f,t,f,f,f,f,t,T-Virus
-f,t,f,t,f,f,f,f,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
+f,t,f,t,f,f,f,f,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,t,t,f,f,f,Infecção Viral
-f,t,f,t,f,f,f,t,Infecção Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,t,f,t,f,f,f,t,Infeccao Bacteriana
 f,f,f,f,f,f,t,f,Gripe Aviaria
-f,t,f,f,f,f,f,t,Infecção Bacteriana
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,f,t,f,t,f,f,Briga
 f,f,t,t,f,f,f,f,Zulombriga
-t,f,f,f,f,f,f,t,Infecção Bacteriana
-f,f,f,f,t,f,f,f,Infecção Viral
+t,f,f,f,f,f,f,t,Infeccao Bacteriana
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,t,t,t,f,f,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-t,t,f,f,f,f,t,t,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,t,t,f,f,f,Infecção Viral
+t,t,f,f,f,f,t,t,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,f,Briga
 f,f,t,f,f,f,f,t,T-Virus
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
 f,t,t,f,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,t,t,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,t,f,t,T-Virus
@@ -466,9 +466,9 @@ f,f,f,t,t,t,f,f,Briga
 f,t,f,f,f,f,t,t,Gripe Aviaria
 f,f,t,f,f,t,f,t,T-Virus
 f,f,f,f,f,t,f,t,T-Virus
-t,t,f,f,f,f,f,t,Infecção Bacteriana
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
 f,f,t,t,f,f,f,f,Zulombriga
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,f,t,t,Gripe Aviaria
 f,f,f,f,f,f,f,t,Gripe Aviaria
 f,f,f,t,f,t,f,f,Briga
@@ -479,23 +479,23 @@ f,t,t,f,f,f,f,f,Zulombriga
 f,f,f,t,f,t,f,f,Briga
 f,f,f,t,f,t,f,f,Briga
 f,t,t,t,f,f,f,f,Zulombriga
-t,f,f,t,t,f,f,f,Infecção Viral
+t,f,f,t,t,f,f,f,Infeccao Viral
 f,f,f,t,f,t,f,f,Briga
 f,f,f,t,f,t,f,t,Briga
 f,f,f,f,f,f,t,t,Gripe Aviaria
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,f,f,f,f,t,f,f,Briga
-f,f,f,t,t,f,f,f,Infecção Viral
-f,t,f,f,f,f,f,t,Infecção Bacteriana
-t,t,f,f,f,f,f,t,Infecção Bacteriana
-f,f,f,t,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,t,f,f,f,f,f,t,Infeccao Bacteriana
+t,t,f,f,f,f,f,t,Infeccao Bacteriana
+f,f,f,t,t,f,f,f,Infeccao Viral
 f,f,t,f,f,f,f,f,Zulombriga
 f,t,t,t,f,f,f,f,Zulombriga
-f,f,f,t,t,f,f,f,Infecção Viral
-f,f,f,f,t,f,f,f,Infecção Viral
+f,f,f,t,t,f,f,f,Infeccao Viral
+f,f,f,f,t,f,f,f,Infeccao Viral
 f,t,t,f,f,f,f,f,Zulombriga
-f,t,f,t,f,f,f,f,Infecção Bacteriana
+f,t,f,t,f,f,f,f,Infeccao Bacteriana
 f,f,t,f,f,f,f,f,Zulombriga
 f,f,t,f,f,t,f,t,T-Virus
-t,t,f,t,f,f,t,t,Infecção Bacteriana
+t,t,f,t,f,f,t,t,Infeccao Bacteriana
 f,t,f,f,f,f,t,f,Gripe Aviaria
