@@ -200,7 +200,7 @@ public class Doctor implements IDoctor
     }
   
     public void matrizArquivo() { //de 0 a 19
-        ds.setDataSource("./src/yisheng/csv/zombie-health-cases500.csv");
+        ds.setDataSource("./src/yisheng/csv/zombie-health-new-cases20.csv");
         this.attributes = ds.requestAttributes();
         this.instances = ds.requestInstances();
         
@@ -239,7 +239,7 @@ public class Doctor implements IDoctor
         FileWriter arquivo;
         try {
           // o segundo parametro indica se fara append ou nao
-          arquivo = new FileWriter("zombie-health-cases500.csv", true);
+          arquivo = new FileWriter("zombie-health-new-cases20.csv", true);
           for (int i = 0; i <= this.instances.length; i++) {
             if (i == this.instances.length) {
               for (int j = 0; j < this.attributes.length; j++) {
