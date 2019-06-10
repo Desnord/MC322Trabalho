@@ -169,7 +169,7 @@ public class Doctor implements IDoctor
                 {
                     if(!aux_ins[i][largura - 1].equals("")) 
                     {
-                        return "O paciente pode ter: " + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
+                        return "" + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
                 }
                 //return "Doenca desconhecida";
@@ -191,7 +191,7 @@ public class Doctor implements IDoctor
                 }
             }
         }
-        String doencas = "O paciente pode ter: " + conj.get(0);
+        String doencas = "" + conj.get(0);
 
         for(int k = 1; k < conj.size(); k++)
             doencas += ", " + conj.get(k);

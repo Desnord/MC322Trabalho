@@ -9,18 +9,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.Socket;
 import java.net.URL;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -35,6 +31,14 @@ import yisheng.Pacient.IPatient;
 import yisheng.Pacient.Patient;
 import yisheng.componentes.Arquivo;
 import yisheng.componentes.RedeCliente;
+
+
+import jsmaiorjava.interfaces.ITratamento;
+import jsmaiorjava.implementations.Tratamento;
+import jsmaiorjava.interfaces.IProntuario;
+import jsmaiorjava.implementations.Prontuario;
+import jsmaiorjava.implementations.ZumbiTwittero;
+import jsmaiorjava.implementations.ImprimeAtestado;
 
 /**
  *
@@ -284,7 +288,32 @@ public class JPPrincipal extends JPanel implements ActionListener
             String doenca = medico.startInterview();
             
             //escreve o diagnóstico na tela
-            JTAinfos.setText(doenca);
+            JTAinfos.setText("O paciente pode ter: "+doenca);
+            
+            
+            //Componente importado de outro grupo.
+            //Gera um atestado do diagnostico
+            //Posta mensagem no twitter
+            /*------------------------------------------------------------------------------------------------*/
+            JFrame janelaNomeMedico = new JFrame("Nome Medico");
+            JFrame janelaNomePaciente = new JFrame("Nome Paciente");
+            
+            String doutor = JOptionPane.showInputDialog(janelaNomeMedico, "Digite o nome do médico: ");
+            String paciente = JOptionPane.showInputDialog(janelaNomePaciente, "Digite o nome do paciente: ");
+            
+            ITratamento tratamento = new Tratamento(doenca);
+            
+            IProntuario prontuario = new Prontuario(tratamento,paciente,doutor);
+            ZumbiTwittero zt = new ZumbiTwittero(prontuario,
+            "@doutor está cuidando de @paciente, tristemente o paciente pode ter: @doenca.\n" +
+            "Pra não perder a vida terá que @tratamento. \n até mais meus consagrados.");
+            
+            boolean twitou = zt.twittar();
+            
+            ImprimeAtestado impAts = new ImprimeAtestado(prontuario);
+            impAts.imprime(System.getProperty("user.home")+"/Desktop");
+            
+           /*------------------------------------------------------------------------------------------------*/
         }      
     }
 }
