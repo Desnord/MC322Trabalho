@@ -34,6 +34,7 @@ import yisheng.Doctor.IDoctor;
 import yisheng.Pacient.IPatient;
 import yisheng.Pacient.Patient;
 import yisheng.componentes.Arquivo;
+import yisheng.componentes.RedeCliente;
 
 /**
  *
@@ -215,6 +216,9 @@ public class JPPrincipal extends JPanel implements ActionListener
     	{  
             //acha o caminho do arquivo com uma janelinha e instancia o dataset
             String nome = Arquivo.AbrirArquivo("/src/yisheng/csv");
+            
+            if(!nome.equals(""))
+            {
             dataset = new DataSetComponent();
             dataset.setDataSource(nome);
             
@@ -224,7 +228,7 @@ public class JPPrincipal extends JPanel implements ActionListener
                 
             //habilita botao de diagnostico
             JBDiagnosticar.setEnabled(true);
-            
+            }
     	}
     }
     
@@ -234,45 +238,30 @@ public class JPPrincipal extends JPanel implements ActionListener
         @Override
         public void actionPerformed (ActionEvent e)
     	{
-            try
-            {
-                //conecta-se ao paciente
-                Socket socket = new Socket("127.0.0.1",Integer.parseInt("6660"));
-                //recebe dados do paciente e transforma em string
-                ObjectInputStream ois = new ObjectInputStream (socket.getInputStream());   
-                String pacInfos = (String)ois.readObject();
-                
-                //JTAinfos.setText(pacInfos);
-                
-                //fecha conexao
-                socket.close();
-                
-                //transforma dados do paciente em um vetor
-                String vetInfos[] = pacInfos.split(",");
                 dataset = new DataSetComponent();
                 
-                //verifica em qual dos arquivos o paciente pertence
-                if(vetInfos[0].equals("1"))
-                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
-                else if(vetInfos[0].equals("2"))
-                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
-                else if(vetInfos[0].equals("3"))
-                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
-                else if(vetInfos[0].equals("4"))
-                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
-           
-                //seleciona um novo paciente para diagnosticar
-                paciente = new Patient();
-                paciente.connect(dataset);
-                paciente.setaSintomas(vetInfos);
+                String vetInfos[] = RedeCliente.ReceberDados("127.0.0.1","6660");
                 
-                //habilita botao de diagnostico
-                JBDiagnosticar.setEnabled(true);
-            }
-            catch(IOException | ClassNotFoundException | NumberFormatException ex)
-            {
-                JOptionPane.showMessageDialog(null, "Servidor indisponível ou dados recebidos inválidos.", "Erro: ", JOptionPane.INFORMATION_MESSAGE);
-            }
+                if(vetInfos != null)
+                {
+                    //verifica em qual dos arquivos o paciente pertence
+                    if(vetInfos[0].equals("1"))
+                        dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
+                    else if(vetInfos[0].equals("2"))
+                        dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
+                    else if(vetInfos[0].equals("3"))
+                        dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
+                    else if(vetInfos[0].equals("4"))
+                        dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
+           
+                    //seleciona um novo paciente para diagnosticar
+                    paciente = new Patient();
+                    paciente.connect(dataset);
+                    paciente.setaSintomas(vetInfos);
+
+                    //habilita botao de diagnostico
+                    JBDiagnosticar.setEnabled(true);
+                }
         }      
     }
     
