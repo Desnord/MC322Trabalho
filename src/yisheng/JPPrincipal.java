@@ -294,6 +294,8 @@ public class JPPrincipal extends JPanel implements ActionListener
             //Componente importado de outro grupo.
             //Gera um atestado do diagnostico
             //Posta mensagem no twitter
+            //link do twitter:
+            //https://mobile.twitter.com/ZumbiDoutor/with_replies
             /*------------------------------------------------------------------------------------------------*/
             JFrame janelaNomeMedico = new JFrame("Nome Medico");
             JFrame janelaNomePaciente = new JFrame("Nome Paciente");
