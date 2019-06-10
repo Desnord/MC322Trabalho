@@ -33,6 +33,7 @@ import yisheng.Doctor.Doctor;
 import yisheng.Doctor.IDoctor;
 import yisheng.Pacient.IPatient;
 import yisheng.Pacient.Patient;
+import yisheng.componentes.Arquivo;
 
 /**
  *
@@ -212,35 +213,18 @@ public class JPPrincipal extends JPanel implements ActionListener
         @Override
         public void actionPerformed (ActionEvent e)
     	{  
-            try
-            {
+            //acha o caminho do arquivo com uma janelinha e instancia o dataset
+            String nome = Arquivo.AbrirArquivo("/src/yisheng/csv");
+            dataset = new DataSetComponent();
+            dataset.setDataSource(nome);
             
-            //abre um arquivo com configuracao de paciente
-            JFileChooser x = new JFileChooser(System.getProperty("user.dir")+"/src/yisheng/csv");
-	    x.setDialogTitle("Abrir");
+            //seleciona um novo paciente para diagnosticar
+            paciente = new Patient();
+            paciente.connect(dataset);
+                
+            //habilita botao de diagnostico
+            JBDiagnosticar.setEnabled(true);
             
-            int retorno = x.showSaveDialog(null);
-            
-            String nome = "";//nome do arquivo
-            
-                if(retorno == JFileChooser.APPROVE_OPTION)
-                {
-                    nome = x.getSelectedFile().getAbsolutePath();
-
-
-                    dataset = new DataSetComponent();
-                    dataset.setDataSource(nome);
-
-                    //seleciona um novo paciente para diagnosticar
-                    paciente = new Patient();
-                    paciente.connect(dataset);
-
-                    //habilita botao de diagnostico
-                    JBDiagnosticar.setEnabled(true);
-                }
-            }
-            catch (HeadlessException ex)
-            {}
     	}
     }
     
