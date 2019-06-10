@@ -172,7 +172,9 @@ public class Doctor implements IDoctor
                         return "O paciente pode ter: " + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
                 }
-                return "Doenca desconhecida"; // Doenca desconhecida
+                //return "Doenca desconhecida";
+                return this.adicionaDoenca();
+                // Doenca desconhecida
 
             }
         }
@@ -232,7 +234,7 @@ public class Doctor implements IDoctor
           c = 0;
         }
     }
-    public void adicionaDoenca()
+    public String adicionaDoenca()
     {
         FileWriter arquivo;
         try {
@@ -259,5 +261,6 @@ public class Doctor implements IDoctor
         catch (IOException erro) {
           System.out.println("Nao consegui criar o arquivo =(");
         }
+        return this.doenca;
     }
 }
