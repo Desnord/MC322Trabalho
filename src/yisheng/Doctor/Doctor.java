@@ -237,7 +237,7 @@ public class Doctor implements IDoctor
     }
   
     public void matrizArquivo() {
-        ds.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/" + this.nome);
+        ds.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+this.nome);
         this.attributes = ds.requestAttributes();
         this.instances = ds.requestInstances();
     }
@@ -256,7 +256,7 @@ public class Doctor implements IDoctor
                     //coloca o nome da doenca
                 }
                 else {
-                  arquivo.append(this.sintomas[j]+ ","); //nao sei se isso funciona, mas preciso adicionar a virgula
+                  arquivo.append(this.sintomas[j]+","); //nao sei se isso funciona, mas preciso adicionar a virgula
                   //coloca t ou f
                 }
               }
@@ -264,7 +264,6 @@ public class Doctor implements IDoctor
           }
           arquivo.flush();  
           arquivo.close();
-          System.out.println("Gravacao realizada com sucesso!");
         }
         catch (IOException erro) {
           System.out.println("Nao consegui criar o arquivo =(");
