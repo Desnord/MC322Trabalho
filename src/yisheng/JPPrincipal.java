@@ -33,12 +33,8 @@ import yisheng.componentes.Arquivo;
 import yisheng.componentes.RedeCliente;
 
 
-import jsmaiorjava.interfaces.ITratamento;
-import jsmaiorjava.implementations.Tratamento;
-import jsmaiorjava.interfaces.IProntuario;
-import jsmaiorjava.implementations.Prontuario;
-import jsmaiorjava.implementations.ZumbiTwittero;
-import jsmaiorjava.implementations.ImprimeAtestado;
+import jsmaiorjava.implementations.*;
+import jsmaiorjava.interfaces.*;
 
 /**
  *
@@ -291,7 +287,7 @@ public class JPPrincipal extends JPanel implements ActionListener
             JTAinfos.setText("O paciente pode ter: "+doenca);
             
             
-            //Componente importado de outro grupo.
+            //Componentes importados de outro grupo.
             //Gera um atestado do diagnostico
             //Posta mensagem no twitter
             //link do twitter:
@@ -303,7 +299,7 @@ public class JPPrincipal extends JPanel implements ActionListener
             String doutor = JOptionPane.showInputDialog(janelaNomeMedico, "Digite o nome do médico: ");
             String paciente = JOptionPane.showInputDialog(janelaNomePaciente, "Digite o nome do paciente: ");
             
-            ITratamento tratamento = new Tratamento(doenca);
+            Tratamento tratamento = new Tratamento(doenca);
             
             IProntuario prontuario = new Prontuario(tratamento,paciente,doutor);
             ZumbiTwittero zt = new ZumbiTwittero(prontuario,

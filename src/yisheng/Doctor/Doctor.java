@@ -61,15 +61,18 @@ public class Doctor implements IDoctor
         int[] aux = new int[4];
         int[] resp = new int [att.length - 1];
         
+        //as linhas comentadas aqui, estao dando exception
+        //tem que descobrir o porque desses erros e arrumar
+        
         for(int j = 0; j < att.length - 1; j++){
             for (int i = 0; i < ins.length; i++){
                 if(ins[i][j].equals("f")){
                     aux_f += 1;
-                    this.sintomas[i] = 'f';
+                    //this.sintomas[i] = 'f'; 
                 }
                 else if(ins[i][j].equals("t")){
-                    this.sintomas[i] = 't';
-                    this.quantSintomas += 1;
+                    //this.sintomas[i] = 't';
+                    //this.quantSintomas += 1;
                     aux_t += 1;
                 }
             }
@@ -207,7 +210,6 @@ public class Doctor implements IDoctor
                 this.achaDoenca();
                 return this.adicionaDoenca();
                 // Doenca desconhecida
-
             }
         }
 
