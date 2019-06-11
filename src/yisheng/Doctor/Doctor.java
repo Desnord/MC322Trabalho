@@ -26,7 +26,7 @@ public class Doctor implements IDoctor
     private int patientN = 0;
     private String doenca;
     private String nome;
-    protected int sintomas[] = new int[7]; //vetor q salva os sintomas
+    protected int[] sintomas; //vetor q salva os sintomas
     protected int quantSintomas = 0;
     protected String attributes[];
     protected String instances[][];
@@ -60,6 +60,7 @@ public class Doctor implements IDoctor
         int aux_t = 0, aux_f = 0;
         int[] aux = new int[4];
         int[] resp = new int [att.length - 1];
+        this.sintomas = new int[att.length - 1];
         
         //as linhas comentadas aqui, estao dando exception
         //tem que descobrir o porque desses erros e arrumar
@@ -68,11 +69,12 @@ public class Doctor implements IDoctor
             for (int i = 0; i < ins.length; i++){
                 if(ins[i][j].equals("f")){
                     aux_f += 1;
-                    //this.sintomas[i] = 'f'; 
+                    this.sintomas[j] = 'f'; 
                 }
                 else if(ins[i][j].equals("t")){
-                    //this.sintomas[i] = 't';
-                    //this.quantSintomas += 1;
+                    if(j < this.sintomas.length)
+                        this.sintomas[j] = 't';
+                    this.quantSintomas += 1;
                     aux_t += 1;
                 }
             }
