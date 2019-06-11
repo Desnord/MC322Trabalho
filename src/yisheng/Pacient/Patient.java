@@ -23,8 +23,36 @@ public class Patient implements IPatient {
     {        
         for(int i=0; i<attributes.length - 1; i++)
         {
-            patientInstance[i] = infos[i];
+            patientInstance[i] = infos[i+1];
         }
+        
+        String instances[][] = producer.requestInstances();
+        
+        //doenca desconhecida do paciente (por enquanto)
+        patientInstance[attributes.length-1] = "";
+        
+        boolean b = true;
+        
+        for(int i=0;i<instances.length;i++)
+        {
+            b = true;
+            
+            for(int j=0;j<instances[i].length-1;j++)
+            {
+                if(!patientInstance[j].equals(instances[i][j]))
+                {
+                    b = false;
+                }
+            }
+            
+            //se o paciente existe na tabela, entao ele tem a doenca descrita
+            //seta a doenca do paciente igual a que está na tabela
+            if(b)
+            {
+                patientInstance[attributes.length-1] = instances[i][attributes.length-1];
+                break;
+            }
+        }        
     }
     
     public void connect(ITableProducer producer) {
@@ -36,8 +64,8 @@ public class Patient implements IPatient {
         patientN = (int)(Math.random() * instances.length);
         patientInstance = instances[patientN];
         
-        System.out.println("Patient selected: " + patientN);
-        System.out.println("Patient's disease: " + patientInstance[attributes.length - 1]);
+        //System.out.println("Patient selected: " + patientN);
+        //System.out.println("Patient's disease: " + patientInstance[attributes.length - 1]);
     }
     
     public String ask(String question) {

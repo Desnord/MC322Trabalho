@@ -258,7 +258,7 @@ public class JPPrincipal extends JPanel implements ActionListener
                     else if(vetInfos[0].equals("4"))
                         dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
            
-                    //seleciona um novo paciente para diagnosticar
+                    //cria um paciente com os sintomas recebidos pela rede
                     paciente = new Patient();
                     paciente.connect(dataset);
                     paciente.setaSintomas(vetInfos);
