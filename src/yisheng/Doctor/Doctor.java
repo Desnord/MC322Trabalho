@@ -25,6 +25,7 @@ public class Doctor implements IDoctor
 {
     private int patientN = 0;
     private String doenca;
+    private String nome;
     protected int sintomas[] = new int[7]; //vetor q salva os sintomas
     protected int quantSintomas = 0;
     protected String attributes[];
@@ -49,6 +50,11 @@ public class Doctor implements IDoctor
     {
         this.producer = producer;
     }
+    
+    public void setNomeArquivo(String n){
+        this.nome = n;
+    }
+    
     public int[] melhorPergunta(String att[], String ins[][]){
         int[][] cont = new int[att.length - 1][4]; 
         int aux_t = 0, aux_f = 0;
@@ -57,10 +63,15 @@ public class Doctor implements IDoctor
         
         for(int j = 0; j < att.length - 1; j++){
             for (int i = 0; i < ins.length; i++){
-                if(ins[i][j].equals("f"))
+                if(ins[i][j].equals("f")){
                     aux_f += 1;
-                else if(ins[i][j].equals("t"))
+                    this.sintomas[i] = 'f';
+                }
+                else if(ins[i][j].equals("t")){
+                    this.sintomas[i] = 't';
+                    this.quantSintomas += 1;
                     aux_t += 1;
+                }
             }
             cont[j][0] = aux_t;
             cont[j][1] = aux_f;
@@ -82,6 +93,27 @@ public class Doctor implements IDoctor
             resp[i] = cont[i][2];
 
         return resp;
+    }
+    
+    public void achaDoenca(){
+        int c = 0;
+        int d = 0;
+        for (int a = 0; a < this.instances.length; a++) {
+          for (int b = 0; b < this.attributes.length-1; b++){
+            if (this.sintomas[b] == 't' && (this.instances[a][b]).equals("t")) {
+              c += 1;
+              if (c == this.quantSintomas) { //mesmo numero de sintomas iguais
+                //ja tem uma doenca equivalente
+                System.out.println(this.instances[a][7]); //printar todas as possoveis doencas
+              }
+            }
+          }
+          if (c > d) {
+            d = c; //variavel que salva o q mais tem em comum
+            this.doenca = this.instances[a][this.attributes.length]; //salva a doenca que mais tem sintomas em comum
+          }
+          c = 0;
+        }
     }
     
    public String Diagnostico(String att[], String ins[][]) 
@@ -172,7 +204,7 @@ public class Doctor implements IDoctor
                         return "" + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
                 }
-                //return "Doenca desconhecida";
+                this.achaDoenca();
                 return this.adicionaDoenca();
                 // Doenca desconhecida
 
@@ -199,47 +231,18 @@ public class Doctor implements IDoctor
         return doencas;
     }
   
-    public void matrizArquivo() { //de 0 a 19
-        ds.setDataSource("./src/yisheng/csv/zombie-health-new-cases20.csv");
+    public void matrizArquivo() {
+        ds.setDataSource("./src/yisheng/csv/" + this.nome);
         this.attributes = ds.requestAttributes();
         this.instances = ds.requestInstances();
-        
     }
-    //essa parte cria o vetor com os sintomas do paciente
-    public void adicionaSintoma(boolean resp, int pos){
-      if (resp) {
-        this.sintomas[pos] = 't';
-        this.quantSintomas += 1;
-      }
-      else{
-        this.sintomas[pos] = 'f';
-      }
-    }
-    public void achaDoenca(){
-        int c = 0;
-        int d = 0;
-        for (int a = 0; a < this.instances.length; a++) {
-          for (int b = 0; b < this.attributes.length-1; b++){
-            if (this.sintomas[b] == 't' && (this.instances[a][b]).equals("t")) {
-              c += 1;
-              if (c == this.quantSintomas) { //mesmo numero de sintomas iguais
-                System.out.println(this.instances[a][7]); //printar todas as possoveis doencas
-              }
-            }
-          }
-          if (c > d) {
-            d = c; //variavel que salva o q mais tem em comum
-            doenca = this.instances[a][this.attributes.length]; //salva a doenca que mais tem sintomas em comum
-          }
-          c = 0;
-        }
-    }
+    
     public String adicionaDoenca()
     {
         FileWriter arquivo;
         try {
           // o segundo parametro indica se fara append ou nao
-          arquivo = new FileWriter("zombie-health-new-cases20.csv", true);
+          arquivo = new FileWriter(this.nome, true);
           for (int i = 0; i <= this.instances.length; i++) {
             if (i == this.instances.length) {
               for (int j = 0; j < this.attributes.length; j++) {
