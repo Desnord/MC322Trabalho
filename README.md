@@ -12,6 +12,6 @@
 ## Introdução
 O trabalho tem como objetivo de encontrar o melhor diagnóstico possível de determinada enfermidade, a princípio utilizando 3 métodos:
 
-- Encontrar a melhor pergunta
+- Retornar um vetor com as melhores perguntas ordenadas
 - Descobrir o melhor diagnóstico por semelhanças
 - Interface gráfica e Inserção dos dados
