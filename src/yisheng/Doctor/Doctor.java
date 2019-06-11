@@ -51,6 +51,7 @@ public class Doctor implements IDoctor
         this.producer = producer;
     }
     
+    @Override
     public void setNomeArquivo(String n){
         this.nome = n;
     }
@@ -236,7 +237,7 @@ public class Doctor implements IDoctor
     }
   
     public void matrizArquivo() {
-        ds.setDataSource("./src/yisheng/csv/" + this.nome);
+        ds.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/" + this.nome);
         this.attributes = ds.requestAttributes();
         this.instances = ds.requestInstances();
     }

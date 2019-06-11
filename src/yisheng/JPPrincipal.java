@@ -246,19 +246,30 @@ public class JPPrincipal extends JPanel implements ActionListener
                 {
                     //verifica em qual dos arquivos o paciente pertence
                     if(vetInfos[0].equals("1"))
+                    {
                         dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
+                        medico.setNomeArquivo("zombie-health-cases500.csv");
+                    }
                     else if(vetInfos[0].equals("2"))
+                    {
                         dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
+                        medico.setNomeArquivo("zombie-health-new-cases20.csv");
+                    }
                     else if(vetInfos[0].equals("3"))
+                    {
                         dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
+                        medico.setNomeArquivo("zombie-health-new-cases500.csv");
+                    }
                     else if(vetInfos[0].equals("4"))
+                    {
                         dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
-           
+                        medico.setNomeArquivo("zombie-health-spreadsheet-ml-training.csv");
+                    }
                     //cria um paciente com os sintomas recebidos pela rede
                     paciente = new Patient();
                     paciente.connect(dataset);
                     paciente.setaSintomas(vetInfos);
-
+                    
                     //habilita botao de diagnostico
                     JBDiagnosticar.setEnabled(true);
                 }

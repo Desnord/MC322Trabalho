@@ -14,4 +14,6 @@ import yisheng.Reference.IResponderReceptacle;
  * @author Thomas
  */
 public interface IDoctor extends IResponderReceptacle,IEnquirer,ITableProducerReceptacle
-{}
+{
+    public void setNomeArquivo(String n);
+}
