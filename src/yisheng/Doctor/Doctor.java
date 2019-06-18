@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import yisheng.DataSet.DataSetComponent;
@@ -30,6 +31,7 @@ public class Doctor implements IDoctor
     protected int quantSintomas = 0;
     protected String attributes[];
     protected String instances[][];
+    protected String dadosPaciente[];
     
     private DataSetComponent ds = new DataSetComponent();
     
@@ -38,8 +40,8 @@ public class Doctor implements IDoctor
 
     public String startInterview ()
     {
-        String attributes[] = producer.requestAttributes();
-        String instances[][] = producer.requestInstances();
+        attributes = producer.requestAttributes();
+        instances = producer.requestInstances();
         return Diagnostico(attributes, instances);
     }
     public void connect(IResponder responder)
@@ -62,9 +64,6 @@ public class Doctor implements IDoctor
         int[] aux = new int[4];
         int[] resp = new int [att.length - 1];
         this.sintomas = new int[att.length - 1];
-        
-        //as linhas comentadas aqui, estao dando exception
-        //tem que descobrir o porque desses erros e arrumar
         
         for(int j = 0; j < att.length - 1; j++){
             for (int i = 0; i < ins.length; i++){
@@ -101,26 +100,55 @@ public class Doctor implements IDoctor
         return resp;
     }
     
-    public void achaDoenca(){
+    
+    public int achaDoenca()
+    {
         int c = 0;
         int d = 0;
-        for (int a = 0; a < this.instances.length; a++) {
+        for (int a = 0; a < this.instances.length; a++) 
+        {
+          for (int b = 0; b < this.attributes.length-1; b++)
+          {
+            if (this.sintomas[b] == 't' && (this.instances[a][b]).equals("t"))
+            {
+              c += 1;
+              if (c == this.quantSintomas) 
+              { //mesmo numero de sintomas iguais
+                //ja tem uma doenca equivalente
+                this.doenca = this.instances[a][this.attributes.length-1];
+                return 1;
+              }
+            }
+           if (c > d) 
+           {
+             d = c; //variavel que salva o q mais tem em comum
+             this.doenca = this.instances[a][this.attributes.length-1]; //salva a doenca que mais tem sintomas em comum
+           }
+          c = 0;
+        }
+        return 0;
+        }
+        return 0;
+    }
+    
+    /*public void achaDoenca(){
+        int c = 0;
+        int d = 0;
+        
+        for (int a = 0; a < this.instances.length; a++) 
+        {
           for (int b = 0; b < this.attributes.length-1; b++){
             if (this.sintomas[b] == 't' && (this.instances[a][b]).equals("t")) {
               c += 1;
-              if (c == this.quantSintomas) { //mesmo numero de sintomas iguais
-                //ja tem uma doenca equivalente
-                System.out.println(this.instances[a][7]); //printar todas as possoveis doencas
-              }
             }
           }
           if (c > d) {
             d = c; //variavel que salva o q mais tem em comum
-            this.doenca = this.instances[a][this.attributes.length]; //salva a doenca que mais tem sintomas em comum
+            this.doenca = this.instances[a][this.attributes.length-1]; //salva a doenca que mais tem sintomas em comum
           }
           c = 0;
         }
-    }
+    }*/
     
    public String Diagnostico(String att[], String ins[][]) 
    {
@@ -202,16 +230,18 @@ public class Doctor implements IDoctor
 
             if(ver == 0)
             { // So resta uma doenca ou nao encontrou nenhuma doenca
-
+      
                 for(int i = 0; i < altura; i ++)
                 {
                     if(!aux_ins[i][largura - 1].equals("")) 
                     {
-                        return "" + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
+                        this.doenca = "" + aux_ins[i][largura - 1]; // Encontrou uma unica doenca
                     }
+
                 }
-                this.achaDoenca();
+                //this.achaDoenca();
                 return this.adicionaDoenca();
+                
                 // Doenca desconhecida
             }
         }
@@ -242,21 +272,35 @@ public class Doctor implements IDoctor
         this.instances = ds.requestInstances();
     }
     
+    public void setaDadosPaciente(String s[],int t)
+    {
+        this.dadosPaciente = new String[t];
+        
+        for(int i=1;i<t;i++)
+            this.dadosPaciente[i-1] = s[i];
+    }
+    
     public String adicionaDoenca()
     {
         FileWriter arquivo;
+        if(dadosPaciente != null)
+        {
         try {
+            
           // o segundo parametro indica se fara append ou nao
-          arquivo = new FileWriter(this.nome, true);
+          
+          File f = new File("src/yisheng/csv/"+this.nome);
+          
+          arquivo = new FileWriter(f,true);
           for (int i = 0; i <= this.instances.length; i++) {
             if (i == this.instances.length) {
               for (int j = 0; j < this.attributes.length; j++) {
                 if (j == this.attributes.length-1) {
-                    arquivo.append(this.doenca);
+                    arquivo.append(this.doenca+"\n");
                     //coloca o nome da doenca
                 }
                 else {
-                  arquivo.append(this.sintomas[j]+","); //nao sei se isso funciona, mas preciso adicionar a virgula
+                  arquivo.append(dadosPaciente[j]+","); //nao sei se isso funciona, mas preciso adicionar a virgula
                   //coloca t ou f
                 }
               }
@@ -268,6 +312,8 @@ public class Doctor implements IDoctor
         catch (IOException erro) {
           System.out.println("Nao consegui criar o arquivo =(");
         }
+        }
+        
         return this.doenca;
     }
 }

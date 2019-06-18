@@ -55,6 +55,11 @@ public class Patient implements IPatient {
         }        
     }
     
+    public String[] getDados()
+    {
+        return this.patientInstance;
+    }
+    
     public void connect(ITableProducer producer) {
         this.producer = producer;
 

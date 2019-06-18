@@ -16,4 +16,5 @@ import yisheng.Reference.IResponderReceptacle;
 public interface IDoctor extends IResponderReceptacle,IEnquirer,ITableProducerReceptacle
 {
     public void setNomeArquivo(String n);
+    public void setaDadosPaciente(String s[],int t);
 }

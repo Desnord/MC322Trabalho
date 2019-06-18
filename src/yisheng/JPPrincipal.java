@@ -31,6 +31,8 @@ import yisheng.Pacient.IPatient;
 import yisheng.Pacient.Patient;
 import yisheng.componentes.Arquivo;
 import yisheng.componentes.RedeCliente;
+import java.sql.*;
+import java.sql.PreparedStatement;
 
 
 import jsmaiorjava.implementations.*;
@@ -46,7 +48,7 @@ public class JPPrincipal extends JPanel implements ActionListener
     private IPatient paciente;
     private IDataSet dataset;
     
-    private JButton JBDiagnosticar,JBConectar,JBArquivo;
+    private JButton JBDiagnosticar,JBConectar,JBArquivo,JBSqlbd;
     private JTextArea JTAinfos; 
     
     //construtor de janela
@@ -59,6 +61,39 @@ public class JPPrincipal extends JPanel implements ActionListener
        
         
         //criando os botoes,campo de informacoes e seus layouts
+        
+        JBSqlbd = new JButton("BD Conectar");
+        JBSqlbd.setBackground(Color.lightGray);
+        JBSqlbd.setForeground(Color.black);
+        JBSqlbd.setPreferredSize(new Dimension(100, 30));
+        
+        JBSqlbd.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) 
+            {
+                JBSqlbd.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) 
+            {
+                JBSqlbd.setBackground(Color.lightGray);
+                JBSqlbd.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            }
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                JBSqlbd.setBackground(new Color(66, 244, 95));    
+            }     
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+                JBSqlbd.setBackground(Color.lightGray);
+                JBSqlbd.setBorder(BorderFactory.createLineBorder(Color.lightGray));            
+            }
+        });
+        
         JBDiagnosticar = new JButton("Diagnosticar");
         JBDiagnosticar.setEnabled(false);
         JBDiagnosticar.setBackground(Color.lightGray);
@@ -175,6 +210,7 @@ public class JPPrincipal extends JPanel implements ActionListener
         JBConectar.addActionListener(new RedeConectar());
         JBArquivo.addActionListener(new AbrirArquivo());
         JBDiagnosticar.addActionListener(new RealizaDiagnostico());
+        JBSqlbd.addActionListener(new BDConectar());
         
         //setando mais opcoes de layout
             
@@ -189,12 +225,13 @@ public class JPPrincipal extends JPanel implements ActionListener
         add(BorderLayout.CENTER,JTAinfos);
        
         JPanel jps = new JPanel();
-        GridLayout gl = new GridLayout(1,3);
+        GridLayout gl = new GridLayout(1,4);
         jps.setBackground(Color.darkGray);
         jps.setLayout(gl);
         jps.add(JBDiagnosticar);
         jps.add(JBConectar);
         jps.add(JBArquivo);
+        jps.add(JBSqlbd);
       
         add(BorderLayout.SOUTH,jps);  
         
@@ -230,6 +267,158 @@ public class JPPrincipal extends JPanel implements ActionListener
             JBDiagnosticar.setEnabled(true);
             }
     	}
+    }
+    
+    
+    //evento do botao bd conectar
+    private class BDConectar implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            dataset = new DataSetComponent();
+            
+            try
+            {
+                Class.forName("com.mysql.jdbc.Driver");  
+                java.sql.Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10295754","sql10295754","ir8Qy9HGeF");  
+                              
+                PreparedStatement stmt;
+
+                
+                int randomtable = (int)(Math.random() * ((4 - 1) + 1)) + 1;
+                ResultSet rs;
+                String[] vetInfos;
+                
+                if(randomtable == 1)
+                {
+                    int randomIndex = (int)(Math.random() * ((499 - 0) + 0)) + 0;
+                    stmt = con.prepareStatement("select * from dados1 where codigo = "+randomIndex);
+                    rs = stmt.executeQuery(); 
+                    
+                    String row = "";                          
+                    
+                    if (rs.next())
+                    {
+                      row = rs.getString("codigo")+",";
+                      row = row + rs.getString("paralysis")+",";
+                      row = row + rs.getString("yellow_tongue")+",";
+                      row = row + rs.getString("trembiling_finger")+",";
+                      row = row + rs.getString("member_loss")+",";
+                      row = row + rs.getString("chest_pain")+",";
+                      row = row + rs.getString("severe_anger")+",";
+                      row = row + rs.getString("diagnostic");
+                    }
+                    
+                    vetInfos = row.split(",");
+                    
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-cases500.csv");
+                    
+                    paciente = new Patient();
+                    paciente.connect(dataset);
+                    paciente.setaSintomas(vetInfos);
+                }
+                else if(randomtable == 2)
+                {
+                    int randomIndex = (int)(Math.random() * ((19 - 0) + 0)) + 0;
+                    stmt = con.prepareStatement("select * from dados2 where codigo = "+randomIndex);
+                    rs = stmt.executeQuery(); 
+                    
+                    String row = "";   
+                    
+                    if (rs.next())
+                    {
+                      row = rs.getString("codigo")+",";
+                      row = row + rs.getString("paralysis")+",";
+                      row = row + rs.getString("yellow_tongue")+",";
+                      row = row + rs.getString("member_loss")+",";
+                      row = row + rs.getString("chest_pain")+",";
+                      row = row + rs.getString("trembiling_finger")+",";
+                      row = row + rs.getString("severe_anger")+",";
+                      row = row + rs.getString("red_eye")+",";
+                      row = row + rs.getString("blue_skin")+",";
+                      row = row + rs.getString("diagnostic");   
+                    }
+                    
+                    vetInfos = row.split(",");
+                    
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases20.csv");
+                    
+                    paciente = new Patient();
+                    paciente.connect(dataset);
+                    paciente.setaSintomas(vetInfos);
+                }
+                else if(randomtable == 3)
+                {
+                    int randomIndex = (int)(Math.random() * ((499 - 0) + 0)) + 0;
+                    stmt = con.prepareStatement("select * from dados3 where codigo = "+randomIndex);
+                    rs = stmt.executeQuery(); 
+                    
+                    String row = "";              
+                    
+                    if (rs.next())
+                    {
+                      row = rs.getString("codigo")+",";
+                      row = row + rs.getString("Paralisia")+",";
+                      row = row + rs.getString("LinguaAmarela")+",";
+                      row = row + rs.getString("DedoTremendo")+",";
+                      row = row + rs.getString("PerdadeMembro")+",";
+                      row = row + rs.getString("DornoPeito")+",";
+                      row = row + rs.getString("RaivaSevera")+",";
+                      row = row + rs.getString("Olhovermelho")+",";
+                      row = row + rs.getString("Peleazul")+",";
+                      row = row + rs.getString("Diagnostico");
+                    }
+                    
+                    vetInfos = row.split(",");
+                    
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-new-cases500.csv");
+                    
+                    paciente = new Patient();
+                    paciente.connect(dataset);
+                    paciente.setaSintomas(vetInfos);
+                }
+                else if(randomtable == 4)
+                {
+                    int randomIndex = (int)(Math.random() * ((18 - 0) + 0)) + 0;
+                    stmt = con.prepareStatement("select * from dados4 where codigo = "+randomIndex);
+                    rs = stmt.executeQuery(); 
+                    
+                    String row = "";              
+                    
+                    if (rs.next())
+                    {
+                      row = rs.getString("codigo")+",";
+                      row = row + rs.getString("paralysis")+",";
+                      row = row + rs.getString("yellow_tong")+",";
+                      row = row + rs.getString("member_loss")+",";
+                      row = row + rs.getString("chest_pain")+",";
+                      row = row + rs.getString("trembling_finger")+",";
+                      row = row + rs.getString("severe_anger")+",";
+                      row = row + rs.getString("history_bacteria")+",";
+                      row = row + rs.getString("diagnostic");
+                    }
+                    
+                    vetInfos = row.split(",");
+                    
+                    dataset.setDataSource(System.getProperty("user.dir")+"/src/yisheng/csv/"+"zombie-health-spreadsheet-ml-training.csv");
+                    
+                    paciente = new Patient();
+                    paciente.connect(dataset);
+                    paciente.setaSintomas(vetInfos);
+                }
+                
+                con.close();  
+                
+                //habilita botao de diagnostico
+                JBDiagnosticar.setEnabled(true);
+            }
+            catch(ClassNotFoundException | SQLException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Banco de dados não disponível.", "Erro: ", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }
     }
     
     //evento do botao conectar
@@ -269,7 +458,7 @@ public class JPPrincipal extends JPanel implements ActionListener
                     paciente = new Patient();
                     paciente.connect(dataset);
                     paciente.setaSintomas(vetInfos);
-                    
+                    medico.setaDadosPaciente(vetInfos,vetInfos.length);                    
                     //habilita botao de diagnostico
                     JBDiagnosticar.setEnabled(true);
                 }
